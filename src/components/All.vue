@@ -105,7 +105,7 @@ button:focus {
 }
 
 .burger-bar {
-  background-color: #130f40;
+  background-color: orange;
   position: absolute;
   top: 50%;
   right: 6px;

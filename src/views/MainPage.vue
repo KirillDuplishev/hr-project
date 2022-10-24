@@ -19,7 +19,7 @@ div.container
 
 <script>
 import SideBarLeft from '@/components/SideBarLeft.vue'
-import BurgerButton from '@/components/HelloWorld.vue'
+import BurgerButton from '@/components/All.vue'
 export default {
   name:"MainPage",
   components: {
