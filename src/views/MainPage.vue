@@ -18,13 +18,11 @@
 <script>
 import SideBarLeft from '@/components/SideBarLeft.vue'
 import BurgerButton from '@/components/Burger.vue'
-// import All from '@/components/All.vue'
 export default {
   name:"MainPage",
   components: {
     SideBarLeft,
     BurgerButton,
-    // All
   },
   data() {
     return {
@@ -46,7 +44,7 @@ export default {
   width: 50px;
   height:50px;
   margin:5px 0 0 50px;
-  background: url("file:///C:/Users/MagicBook/Downloads/Telegram%20Desktop/%D0%A0%D0%B5%D1%81%D1%83%D1%80%D1%81%2011.svg");
+  /* background: url("file:///C:/Users/MagicBook/Downloads/Telegram%20Desktop/%D0%A0%D0%B5%D1%81%D1%83%D1%80%D1%81%2011.svg"); */
   background-repeat: no-repeat;
 }
 .all {
@@ -82,7 +80,7 @@ export default {
   min-height:160px;
   margin-top: 10px;
   margin-left: 10px;
-  background: url("file:///C:/Users/MagicBook/Downloads/Telegram%20Desktop/%D0%A0%D0%B5%D1%81%D1%83%D1%80%D1%81%209.svg");
+  /* background: url("file:///C:/Users/MagicBook/Downloads/Telegram%20Desktop/%D0%A0%D0%B5%D1%81%D1%83%D1%80%D1%81%209.svg"); */
   background-repeat: no-repeat;
   background-size: auto;
 
