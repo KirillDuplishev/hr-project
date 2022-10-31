@@ -1,18 +1,19 @@
 <template>
   <div id="app">
+    <!-- <Authorization/> -->
     <MainPage/>
   </div>
 </template>
 
 <script>
 import MainPage from './views/MainPage.vue'
-// import HelloWorld from './components/HelloWorld.vue'
+// import Authorization from './views/Authorization.vue'
 
 export default {
   name: 'App',
   components: {
-    MainPage
-    // HelloWorld
+    MainPage,
+    // Authorization
   }
 }
 </script>

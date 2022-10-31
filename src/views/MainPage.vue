@@ -7,6 +7,7 @@
     .block-burger
       BurgerButton  
   SideBarLeft
+    span.burgerHeader Меню
     button.btn-sidebar.third Кнопка 1
     button.btn-sidebar.third Кнопка 2
     button.btn-sidebar.third Кнопка 3
@@ -43,8 +44,8 @@ export default {
 .img{
   width: 50px;
   height:50px;
-  margin:5px 0 0 50px;
-  /* background: url("file:///C:/Users/MagicBook/Downloads/Telegram%20Desktop/%D0%A0%D0%B5%D1%81%D1%83%D1%80%D1%81%2011.svg"); */
+  margin:5px 0 0 20px;
+  background: url("D:/hr-project-1/src/assets/Ресурс 6.svg");
   background-repeat: no-repeat;
 }
 .all {
@@ -63,6 +64,8 @@ export default {
   width: 100%;
   background: #D5A253;
   display: flex;
+  border-radius:0 0 10px 10px ;
+  box-shadow: 5px 5px 5px #000;
 }
 .footer {
   /* background: #cc9f4f; */
@@ -76,11 +79,11 @@ export default {
   margin: 0 auto;
 }
 .text {
-  min-width: 160px;
-  min-height:160px;
+  width: 160px;
+  height:inherit;
   margin-top: 10px;
   margin-left: 10px;
-  /* background: url("file:///C:/Users/MagicBook/Downloads/Telegram%20Desktop/%D0%A0%D0%B5%D1%81%D1%83%D1%80%D1%81%209.svg"); */
+  background: url("D:/hr-project-1/src/assets/Ресурс 9.svg");
   background-repeat: no-repeat;
   background-size: auto;
 
@@ -135,17 +138,25 @@ export default {
 }
 
 .third {
-  border-color: #3498db;
+  border-color: orange;
   color: #fff;
-  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  box-shadow: 0 0 40px 40px orange inset, 0 0 0 0 orange;
   -webkit-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
 }
 .third:hover {
-  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+  box-shadow: 0 0 10px 0 orange inset, 0 0 10px 4px orange;
 }
 .block-burger{
   position: absolute;
   right: 0px;
+}
+.burgerHeader{
+  font-size: 25px;
+  font-family: monospace;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  justify-content: center;
 }
 </style>
