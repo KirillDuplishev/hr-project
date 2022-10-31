@@ -34,8 +34,8 @@ export default {
   methods: {
     checkinf() {
       if (this.pass == "super" && this.login == "admin") {
-        window.location.href = 'localhost:8080/All';
-        // this.$router.push('www.yoursite.com/blog');
+        // window.location.href = 'localhost:8080/All';
+        this.$router.push({path: '/MainPage'});
       } else {
         this.error = "Неправильный логин или пароль. Попробуйте еще раз.";
         return false;

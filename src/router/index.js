@@ -5,9 +5,14 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '',
+    path: '/MainPage',
     name: 'MainPage',
     component: () => import('../views/MainPage.vue')
+  },
+  {
+    path: '/',
+    name: 'Authorization',
+    component: () => import('../views/Authorization.vue')
   },
 ]
 
