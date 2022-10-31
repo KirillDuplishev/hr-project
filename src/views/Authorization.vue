@@ -41,10 +41,6 @@ export default {
         return false;
       }
     },
-
-    // router(){
-    //   window.location.href = 'https://www.yoursite.com/blog';
-    // }
   }
 }
 </script>

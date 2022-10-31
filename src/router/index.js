@@ -1,25 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import Authorization from '../views/Authorization.vue'
+import MainPage from '../views/MainPage.vue'
+
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/MainPage',
-    name: 'MainPage',
-    component: () => import('../views/MainPage.vue')
-  },
-  {
-    path: '/',
-    name: 'Authorization',
-    component: () => import('../views/Authorization.vue')
-  },
-]
-
-const router = new VueRouter({
+export default new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+  routes: [
+    {
+      path:'/',
+      component: Authorization
+    },
+    {
+      path:'/mainpage',
+      component: MainPage
+    }
+  ]
 })
-
-export default router

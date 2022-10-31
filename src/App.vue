@@ -1,8 +1,7 @@
 <template lang="pug">
 div
   div(id="app")
-    //- router-link(to="/")
-  router-view
+    router-view
 </template>
 
 <style lang="scss">

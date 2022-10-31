@@ -45,7 +45,8 @@ export default {
   width: 50px;
   height:50px;
   margin:5px 0 0 20px;
-  background: url("D:/hr-project-1/src/assets/Ресурс 6.svg");
+  /* Шадин исправь */
+  /* background: url("D:/hr-project-1/src/assets/Ресурс 6.svg"); */
   background-repeat: no-repeat;
 }
 .all {
@@ -83,7 +84,8 @@ export default {
   height:inherit;
   margin-top: 10px;
   margin-left: 10px;
-  background: url("D:/hr-project-1/src/assets/Ресурс 9.svg");
+  /* Шадин исправь */
+  /* background: url("D:/hr-project-1/src/assets/Ресурс 9.svg"); */
   background-repeat: no-repeat;
   background-size: auto;
 
