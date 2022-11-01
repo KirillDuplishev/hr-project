@@ -8,10 +8,15 @@
       BurgerButton  
   SideBarLeft
     span.burgerHeader Меню
-    button.btn-sidebar.third Кнопка 1
-    button.btn-sidebar.third Кнопка 2
-    button.btn-sidebar.third Кнопка 3
-    button.btn-sidebar.third Кнопка 4
+    button.btn-sidebar.third Мой аккаунт
+    button.btn-sidebar.third Расчет ЗП
+    button.btn-sidebar.third Рабочий график
+    button.btn-sidebar.third(@click="qwe") Выход
+  //- .menu
+  //-     a Рабочий График
+  //-     a Расчпет ЗП
+  //-     a Мой аккаунт
+  //-     a bjhkn
   .content
   .footer    
 </template>
@@ -31,7 +36,9 @@ export default {
     }
   },
   methods: {
-    
+    qwe(){
+      this.$router.push({path:'/'});
+    }
   }
 };
 </script>
@@ -41,6 +48,35 @@ export default {
   margin: 0;
   padding: 0;
 }
+/* .menu{
+  padding-right: 10px;
+  font-size: 2em;
+  display: flex;
+  flex-direction: column;
+}
+.menu a{
+  font-family: "Sofia";
+  text-decoration: none;
+  color: #FCA310;
+  line-height: 1.5em;
+}
+.menu a:hover,
+.menu a:focus{
+  text-shadow: 0 0 5px red;
+  margin-left: 0.5em;
+  outline: none;
+  position: relative;
+  transition: margin .6s ease-in-out;
+  transition: text-shadow .3s ease-in-out;
+
+}
+
+.menu a::before{
+  position: absolute;
+  left: 20em;
+  content: ">";
+  color: transparent;
+} */
 .img{
   width: 50px;
   height:50px;
