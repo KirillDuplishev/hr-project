@@ -2,8 +2,8 @@
 .all
   .header
     .ico
-      .text
       .img
+      .text
     .block-burger
       BurgerButton  
   SideBarLeft
@@ -44,9 +44,8 @@ export default {
 .img{
   width: 50px;
   height:50px;
-  margin:5px 0 0 20px;
-  /* Шадин исправь */
-  /* background: url("D:/hr-project-1/src/assets/Ресурс 6.svg"); */
+  margin:5px 0 0 10px;
+  background: url("@/assets/img/Ресурс6.svg");
   background-repeat: no-repeat;
 }
 .all {
@@ -63,14 +62,16 @@ export default {
 
 .header {
   width: 100%;
-  background: #D5A253;
+  /* background: #D5A253; */
+  background: orange;
   display: flex;
   border-radius:0 0 10px 10px ;
   box-shadow: 5px 5px 5px #000;
 }
 .footer {
   /* background: #cc9f4f; */
-  background: #D5A253;
+  /* background: #D5A253; */
+  background: orange;
   margin-top: auto;
 }
 .content {
@@ -84,8 +85,7 @@ export default {
   height:inherit;
   margin-top: 10px;
   margin-left: 10px;
-  /* Шадин исправь */
-  /* background: url("D:/hr-project-1/src/assets/Ресурс 9.svg"); */
+  background: url("@/assets/img/Ресурс9.svg");
   background-repeat: no-repeat;
   background-size: auto;
 
@@ -93,6 +93,7 @@ export default {
 .ico{
   position: absolute;
   display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 .sidebar {
