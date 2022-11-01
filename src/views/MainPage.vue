@@ -141,6 +141,7 @@ export default {
   float: left;
   width: 17%;
   height: 100%;
+
 }
 
 .btn-sidebar {
@@ -159,6 +160,7 @@ export default {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  justify-content: center;
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
@@ -167,7 +169,6 @@ export default {
   margin: 20px;
   padding: 20px;
   text-decoration: none;
-  text-align: center;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
