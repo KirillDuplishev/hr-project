@@ -12,11 +12,11 @@
     button.btn-sidebar.third Расчет ЗП
     button.btn-sidebar.third Рабочий график
     button.btn-sidebar.third(@click="qwe") Выход
-  //- .menu
-  //-     a Рабочий График
-  //-     a Расчпет ЗП
-  //-     a Мой аккаунт
-  //-     a bjhkn
+    //- .menu
+    //-   a Рабочий График
+    //-   a Расчпет ЗП
+    //-   a Мой аккаунт
+    //-   a bjhkn
   .content
   .footer    
 </template>
@@ -97,11 +97,12 @@ export default {
 }
 
 .header {
-  width: 100%;
+  margin:20px;
+  width: calc(100% - 40px);
   /* background: #D5A253; */
   background: orange;
   display: flex;
-  border-radius:0 0 10px 10px ;
+  border-radius:30px ;
   box-shadow: 5px 5px 5px #000;
 }
 .footer {
@@ -143,6 +144,8 @@ export default {
 }
 
 .btn-sidebar {
+  width:200px;
+  height:60px;
   box-sizing: border-box;
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -160,10 +163,9 @@ export default {
       -ms-flex-item-align: center;
           align-self: center;
   font-size: 1rem;
-  font-weight: 400;
   line-height: 1;
   margin: 20px;
-  padding: 1.2em 2.8em;
+  padding: 20px;
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
@@ -172,7 +174,7 @@ export default {
 }
 
 .btn-sidebar:hover, .btn:focus {
-  color: #fff;
+  /* color: #fff; */
   outline: 0;
 }
 
@@ -188,7 +190,8 @@ export default {
 }
 .block-burger{
   position: absolute;
-  right: 0px;
+  right: 30px;
+  top: 29px;
 }
 .burgerHeader{
   font-size: 25px;

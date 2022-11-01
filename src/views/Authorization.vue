@@ -1,7 +1,7 @@
 <template>
   <form>
   <div class="imgcontainer">
-    <img style="width:300px; height:300px" src="@/assets/img/Ресурс16.svg" alt="Avatar" class="avatar">
+    <img style="width:95%; height:95%; padding:20px 10px 10px 10px" src="@/assets/img/Ресурс16.svg" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
@@ -47,17 +47,17 @@ export default {
   font-family: monospace;
 }
 form {
-  background: rgba(0,0,0, 0.5);
+  background: linear-gradient(#fff, #000 );
   /* width: 100vw; */
   height: 100vh;
   border: 30px solid #454545;
 
 }
 label{
-  width: inherit;
+  width: 100%;
 }
 input[type=text], input[type=password] {
-  width: inherit;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -72,7 +72,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: inherit;
+  width: 100%;
 
 }
 
@@ -83,18 +83,17 @@ button:hover {
 .imgcontainer {
   /* border: 2px solid rgb(255, 140, 0); */
   background: orange;
-  width: 40%;
   text-align: center;
-  margin: 8px 0 12px 0;
+  /* margin: 8px 0 12px 0; */
   border-radius: 20px;
   position: absolute;
   top:50%;
   left: 50%;
-  transform: translate(-50%, -100%);
+  transform: translate(-50%, -120%);
   box-shadow: 5px 5px 5px rgba(0,0,0, 0.5);
 }
 
-img.avatar {
+.avatar {
   width:inherit;
 }
 
@@ -104,13 +103,15 @@ img.avatar {
   position: absolute;
   top:50%;
   left: 50%;
-  transform: translate(-50%, 10%);
+  transform: translate(-50%, -10%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   border: 3px solid #6e6e6e;
   border-radius: 10px ;
   box-shadow: 5px 5px 5px rgba(0,0,0, 0.5);
+  width: 57%;
+  height: 35%;
   /* width: calc(100% - 300px); */
   /* padding: 16px; */
 }
