@@ -41,7 +41,7 @@ export default {
   transition: all 150ms ease-in 0s;
 }
 
-.sidebar-backdrop {
+/* .sidebar-backdrop {
   background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;
   height: 100vh;
@@ -49,7 +49,7 @@ export default {
   top: 0;
   left: 0;
   cursor: pointer;
-}
+} */
 
 .sidebar-panel {
   border-radius: 0 10px 10px 0 ;
