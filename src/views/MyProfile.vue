@@ -12,7 +12,41 @@
     button.btn-sidebar.third Кнопка 2
     button.btn-sidebar.third Кнопка 3
     button.btn-sidebar.third Кнопка 4
-  .content
+  div.block-text
+    h2 Мой профиль
+  .content-my-profile
+    div.photo-sotr-block
+      h2(style="color: white") Иванов Петр Викторович
+      img.img-photo(src="../assets/photo-sotrudnikov/png-transparent-silhouette-male-silhouette.png")
+    div.table-information
+      h2(style="color: white") Общая информация
+      table.table_col
+        colgroup
+          col(style="background: orange")
+        tr
+          td Статус
+          td Сотрудник
+        tr
+          td Специальность
+          td Пекарь
+        tr
+          td Формат трудоустройства
+          td Сотрудник
+        tr
+          td Контактный телефон
+          td +7(950)-818-45-32
+        tr
+          td Почта
+          td korolev@gmail.com
+        tr
+          td Дата рождения
+          td 25.09.2002
+        tr
+          td Дата трудоустройства
+          td 13.10.2020
+        tr
+          td Рабочее место
+          td ул. Гагарина д. 3
   .footer    
 </template>
 
@@ -50,10 +84,10 @@ export default {
   background-repeat: no-repeat;
 }
 .all {
-  background:#4d4944;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  background:#4d4944;
   min-height: 100vh;
 }
 .header,
@@ -73,11 +107,13 @@ export default {
   background: #D5A253;
   margin-top: auto;
 }
-.content {
-  background: rgb(32, 32, 32);
+.content-my-profile {
+  background: #4d4944;
+  display: flex;
+  flex-flow: row wrap;
   width: 100%;
   height: 100%;
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
 }
 .text {
   width: 160px;
@@ -108,7 +144,7 @@ export default {
 .btn-sidebar {
   box-sizing: border-box;
   -webkit-appearance: none;
-     -moz-appearance: none;
+      -moz-appearance: none;
           appearance: none;
   background-color: transparent;
   border: 2px solid #e74c3c;
@@ -160,5 +196,82 @@ export default {
   color: #fff;
   display: flex;
   justify-content: center;
+}
+.block-text {
+  background: #4d4944;
+  padding: 50px 20px;
+  text-align: center;
+} 
+.block-text h2 {
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  color: orange;
+  font-size: 3em;
+  font-weight: normal;
+  line-height: 1;
+  padding: 10px 0;
+  margin: 0;
+  display: inline-block;
+}
+.block-text h2:before {
+  content: ""; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 80%;
+  height: 200%;
+  border-radius: 50%/30%;
+  border: 6px solid orange;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+@media (max-width: 420px) {
+  .block-text h2 {font-size: 2em;}
+}
+.table_col {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 14px;
+  width: auto;
+  background: white;
+  text-align: left;
+  border-collapse: collapse;
+  color: #3E4347;
+}
+.table_col th:first-child, .table_col td:first-child {
+color: #F5F6F6;
+border-left: none;
+}
+.table_col th {
+font-weight: normal;
+border-bottom: 2px solid #F5E1A6;
+border-right: 20px solid white;
+border-left: 20px solid white;
+padding: 8px 10px;
+}
+.table_col td {
+border-right: 20px solid white;
+border-left: 20px solid white;
+padding: 12px 10px;
+color: #8b8e91;
+}
+.photo-sotr-block {
+  width: 300px;
+  height: 100%;
+  margin: auto 20px auto auto;
+}
+.table-information {
+  background: red;
+  border-radius: 5%;
+  padding: 20px;
+  width: auto;
+  height: auto;
+  order: 999;
+  margin-left: auto;
+  margin-right: 20px;
+}
+.img-photo{
+  width: 100%;
+  height: 100%;
 }
 </style>

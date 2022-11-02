@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Authorization from '../views/Authorization.vue'
 import MainPage from '../views/MainPage.vue'
+import MyProfile from '../views/MyProfile.vue'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,10 @@ export default new VueRouter({
     {
       path:'/mainpage',
       component: MainPage
+    },
+    {
+      path:'/myprofile',
+      component: MyProfile
     }
   ]
 })
