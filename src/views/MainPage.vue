@@ -12,12 +12,13 @@
     button.btn-sidebar.third Расчет ЗП
     button.btn-sidebar.third Рабочий график
     button.btn-sidebar.third(@click="qwe") Выход
-    //- .menu
-    //-   a Рабочий График
-    //-   a Расчпет ЗП
-    //-   a Мой аккаунт
-    //-   a bjhkn
   .content
+    section.sectionOne
+      .firstText 
+        //- <img src="@/assets/img/Orange Success Factory.svg">
+        <img src="@/assets/img/nameLogo.svg">
+        h1 Управление человеческим капиталом (HRM) 
+        span Понимая, что необходимо сотрудникам, как они работают и что их мотивирует, вы сможете выработать систему управления персоналом и кадровую стратегию, ориентированную на интересы людей.
   .footer    
 </template>
 
@@ -48,44 +49,15 @@ export default {
   margin: 0;
   padding: 0;
 }
-/* .menu{
-  padding-right: 10px;
-  font-size: 2em;
-  display: flex;
-  flex-direction: column;
-}
-.menu a{
-  font-family: "Sofia";
-  text-decoration: none;
-  color: #FCA310;
-  line-height: 1.5em;
-}
-.menu a:hover,
-.menu a:focus{
-  text-shadow: 0 0 5px red;
-  margin-left: 0.5em;
-  outline: none;
-  position: relative;
-  transition: margin .6s ease-in-out;
-  transition: text-shadow .3s ease-in-out;
-
-}
-
-.menu a::before{
-  position: absolute;
-  left: 20em;
-  content: ">";
-  color: transparent;
-} */
 .img{
   width: 50px;
   height:50px;
-  margin:5px 0 0 10px;
+  margin:10px 0 0 10px;
   background: url("@/assets/img/Ресурс6.svg");
   background-repeat: no-repeat;
 }
 .all {
-  background:#4d4944;
+  background:#fff;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -97,19 +69,24 @@ export default {
 }
 
 .header {
+  position: absolute;
+  z-index: 100;
   margin:20px;
   width: calc(100% - 40px);
-  /* background: #D5A253; */
+  height: 60px;
   background: orange;
   display: flex;
   border-radius:30px ;
-  box-shadow: 5px 5px 5px #000;
+  box-shadow: 5px 5px 15px #000;
+  border: 1px solid #fff;
 }
 .footer {
-  /* background: #cc9f4f; */
-  /* background: #D5A253; */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
   background: orange;
-  margin-top: auto;
 }
 .content {
   background: rgb(32, 32, 32);
@@ -120,7 +97,7 @@ export default {
 .text {
   width: 160px;
   height:inherit;
-  margin-top: 10px;
+  margin-top: 17px;
   margin-left: 10px;
   background: url("@/assets/img/Ресурс9.svg");
   background-repeat: no-repeat;
@@ -201,5 +178,34 @@ export default {
   color: #fff;
   display: flex;
   justify-content: center;
+}
+.sectionOne{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("@/assets/img/HR 24.jpeg");
+  background-size: 100%;
+}
+.firstText{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%,-8em);
+  width: 700px;
+  height: 400px;
+  word-break: normal;
+  font-size: 25px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: left;
+}
+.firstText h1{
+  padding-bottom:10px ;
+  border-bottom: 1px solid #fff;
+}
+.firstText span{
+  padding-top:100px;
 }
 </style>

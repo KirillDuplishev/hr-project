@@ -54,7 +54,7 @@ export default {
 .sidebar-panel {
   border-radius: 0 10px 10px 0 ;
   overflow-y: auto;
-  background-color: rgba(0,0,0, 0.6);
+  background-color: rgba(0,0,0, 0.9);
   position: fixed;
   left: 0;
   top: 0;

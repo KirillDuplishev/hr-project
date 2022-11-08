@@ -33,7 +33,6 @@ export default {
     cursor: pointer;
   }
 
-  /* remove blue outline */
   button:focus {
     outline: 0;
   }
@@ -54,7 +53,7 @@ export default {
   .burger-bar {
     background-color: #130f40;
     position: absolute;
-    top: 50%;
+    top: 10%;
     right: 6px;
     left: 6px;
     height: 2px;
