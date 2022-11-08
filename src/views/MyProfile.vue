@@ -15,38 +15,42 @@
   div.block-text
     h2 Мой профиль
   .content-my-profile
-    div.photo-sotr-block
-      h2(style="color: white") Иванов Петр Викторович
-      img.img-photo(src="../assets/photo-sotrudnikov/png-transparent-silhouette-male-silhouette.png")
-    div.table-information
-      h2(style="color: white") Общая информация
-      table.table_col
-        colgroup
-          col(style="background: orange")
-        tr
-          td Статус
-          td Сотрудник
-        tr
-          td Специальность
-          td Пекарь
-        tr
-          td Формат трудоустройства
-          td Сотрудник
-        tr
-          td Контактный телефон
-          td +7(950)-818-45-32
-        tr
-          td Почта
-          td korolev@gmail.com
-        tr
-          td Дата рождения
-          td 25.09.2002
-        tr
-          td Дата трудоустройства
-          td 13.10.2020
-        tr
-          td Рабочее место
-          td ул. Гагарина д. 3
+    .first-block
+      div.photo-sotr-block
+        h2(style="color: white") Иванов Петр Викторович
+        br
+        img.img-photo(src="../assets/photo-sotrudnikov/free-icon-user-149452.png")
+    .second-block
+      .table-block
+        div.table-information
+          h2(style="color: white") Общая информация
+          table.table_col
+            colgroup
+              col()
+            tr
+              td.table_col-first-td() Статус
+              td Сотрудник
+            tr
+              td.table_col-first-td Специальность
+              td Пекарь
+            tr
+              td.table_col-first-td Формат трудоустройства
+              td Сотрудник
+            tr
+              td.table_col-first-td Контактный телефон
+              td +7(950)-818-45-32
+            tr
+              td.table_col-first-td Почта
+              td korolev@gmail.com
+            tr
+              td.table_col-first-td Дата рождения
+              td 25.09.2002
+            tr
+              td.table_col-first-td Дата трудоустройства
+              td 13.10.2020
+            tr
+              td.table_col-first-td Рабочее место
+              td ул. Гагарина д. 3
   .footer    
 </template>
 
@@ -230,48 +234,61 @@ export default {
   .block-text h2 {font-size: 2em;}
 }
 .table_col {
+  margin: auto;
   font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
   font-size: 14px;
   width: auto;
-  background: white;
   text-align: left;
   border-collapse: collapse;
   color: #3E4347;
 }
+.table_col-first-td {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 14px;
+  font-weight: bold;
+  width: 150px;
+}
 .table_col th:first-child, .table_col td:first-child {
-color: #F5F6F6;
+/* color: #F5F6F6; */
 border-left: none;
 }
 .table_col th {
 font-weight: normal;
-border-bottom: 2px solid #F5E1A6;
-border-right: 20px solid white;
-border-left: 20px solid white;
 padding: 8px 10px;
 }
 .table_col td {
-border-right: 20px solid white;
-border-left: 20px solid white;
 padding: 12px 10px;
-color: #8b8e91;
+color: #4d4944;
 }
 .photo-sotr-block {
   width: 300px;
   height: 100%;
-  margin: auto 20px auto auto;
+  margin: auto 150px auto auto;
+}
+.table-block {
+  width: auto;
+  text-align: center;
+  height: 100%;
+  margin: auto 20px auto 150px;
 }
 .table-information {
-  background: red;
+  background: #cbaa81;
   border-radius: 5%;
-  padding: 20px;
-  width: auto;
-  height: auto;
-  order: 999;
-  margin-left: auto;
-  margin-right: 20px;
+  padding: 10px 50px 10px 50px;
+  width: fit-content;
+  text-align: center;
+  height: 100%;
 }
 .img-photo{
   width: 100%;
   height: 100%;
+}
+.first-block {
+  height: 100%;
+  width: 50%;
+}
+.second-block {
+  height: 100%;
+  width: 50%;
 }
 </style>
