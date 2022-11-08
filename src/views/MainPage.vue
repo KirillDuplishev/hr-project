@@ -8,7 +8,7 @@
       BurgerButton  
   SideBarLeft
     span.burgerHeader Меню
-    button.btn-sidebar.third Мой аккаунт
+    button.btn-sidebar.third(@click="$router.push({path: '/myprofile'})") Мой профиль
     button.btn-sidebar.third Расчет ЗП
     button.btn-sidebar.third Рабочий график
     button.btn-sidebar.third(@click="qwe") Выход
