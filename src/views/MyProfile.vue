@@ -9,9 +9,9 @@
   SideBarLeft
     span.burgerHeader Меню
     button.btn-sidebar.third(@click="$router.push({path: '/myprofile'})") Мой профиль
-    button.btn-sidebar.third Кнопка 2
-    button.btn-sidebar.third Кнопка 3
-    button.btn-sidebar.third Кнопка 4
+    button.btn-sidebar.third Расчет ЗП
+    button.btn-sidebar.third Рабочий график
+    button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
   .content-my-profile
     .first-block
       div.photo-sotr-block
@@ -148,9 +148,11 @@ export default {
 }
 
 .btn-sidebar {
+  width:200px;
+  height:60px;
   box-sizing: border-box;
   -webkit-appearance: none;
-      -moz-appearance: none;
+     -moz-appearance: none;
           appearance: none;
   background-color: transparent;
   border: 2px solid #e74c3c;
@@ -161,16 +163,15 @@ export default {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  justify-content: center;
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
   font-size: 1rem;
-  font-weight: 400;
   line-height: 1;
   margin: 20px;
-  padding: 1.2em 2.8em;
+  padding: 20px;
   text-decoration: none;
-  text-align: center;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -193,7 +194,8 @@ export default {
 }
 .block-burger{
   position: absolute;
-  right: 0px;
+  right: 30px;
+  top: 29px;
 }
 .name{
   font-size: 30px;

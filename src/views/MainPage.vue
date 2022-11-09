@@ -11,7 +11,7 @@
     button.btn-sidebar.third(@click="$router.push({path: '/myprofile'})") Мой профиль
     button.btn-sidebar.third Расчет ЗП
     button.btn-sidebar.third Рабочий график
-    button.btn-sidebar.third(@click="qwe") Выход
+    button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
   .content
     section.sectionOne
       .firstText
@@ -42,9 +42,6 @@ export default {
     }
   },
   methods: {
-    qwe(){
-      this.$router.push({path:'/'});
-    }
   }
 };
 </script>

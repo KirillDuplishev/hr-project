@@ -47,12 +47,11 @@ export default {
   font-family: monospace;
 }
 form {
-  /* background: linear-gradient(#fff, #000 ); */
-  background: linear-gradient(111.1deg, rgb(0, 40, 70) -4.8%, rgb(255, 115, 115) 82.7%, rgb(255, 175, 123) 97.2%);
+  background-image: url("@/assets/img/Autoback.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
   width: 100vw;
   height: 100vh;
-  border: 30px solid #454545;
-
 }
 label{
   width: 100%;
@@ -82,15 +81,17 @@ button:hover {
 }
 
 .imgcontainer {
-  background: orange;
+  box-shadow: 0 19px 27px 10px rgb(238 119 42 / 50%);
+  background: linear-gradient(344.37deg, #EE772A 10.07%, #ff5f3b 92.45%);
+  /* background: orange; */
   text-align: center;
-  /* margin: 8px 0 12px 0; */
   border-radius: 20px;
+  border: 2px solid white;
   position: absolute;
   top:50%;
   left: 50%;
   transform: translate(-50%, -95%);
-  box-shadow: 5px 5px 5px rgba(0,0,0, 0.5);
+  /* box-shadow: 5px 5px 5px rgba(0,0,0, 0.5); */
 }
 
 .avatar {
