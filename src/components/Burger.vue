@@ -53,12 +53,12 @@ export default {
   .burger-bar {
     background-color: #130f40;
     position: absolute;
-    top: 10%;
+    top: 50%;
     right: 6px;
     left: 6px;
     height: 2px;
     width: auto;
-    margin-top: -1px;
+    margin-top: -15px;
     transition: transform .6s cubic-bezier(.165,.84,.44,1),opacity .3s cubic-bezier(.165,.84,.44,1),background-color .6s cubic-bezier(.165,.84,.44,1);
   }
 
@@ -85,7 +85,7 @@ export default {
   }
 
   #burger.active .burger-button {
-    transform: rotate(-180deg);
+    /* transform: rotate(1turn); */
   }
 
   #burger.active .burger-bar {

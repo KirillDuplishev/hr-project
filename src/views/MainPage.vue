@@ -14,12 +14,17 @@
     button.btn-sidebar.third(@click="qwe") Выход
   .content
     section.sectionOne
-      .firstText 
-        //- <img src="@/assets/img/Orange Success Factory.svg">
-        <img src="@/assets/img/nameLogo.svg">
-        h1 Управление человеческим капиталом (HRM) 
-        span Понимая, что необходимо сотрудникам, как они работают и что их мотивирует, вы сможете выработать систему управления персоналом и кадровую стратегию, ориентированную на интересы людей.
-  .footer    
+      .firstText
+          <img src="@/assets/img/nameLogo.svg">
+          h1 Управление человеческим капиталом (HRM)
+          br 
+          span Понимая, что необходимо сотрудникам, как они работают и что их мотивирует, вы сможете выработать систему управления персоналом и кадровую стратегию, ориентированную на интересы людей.
+          .border
+    section.sectionTwo
+    //- div(style="width:100%; height: 800px; background:red;")
+
+  .footer
+    p ORANGE © 2022     
 </template>
 
 <script>
@@ -49,6 +54,10 @@ export default {
   margin: 0;
   padding: 0;
 }
+/* .all{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+} */
 .img{
   width: 50px;
   height:50px;
@@ -56,39 +65,37 @@ export default {
   background: url("@/assets/img/Ресурс6.svg");
   background-repeat: no-repeat;
 }
-.all {
-  background:#fff;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-.header,
-.footer {
-  height: 50px;
-}
-
 .header {
-  position: absolute;
+  position: fixed;
   z-index: 100;
   margin:20px;
   width: calc(100% - 40px);
   height: 60px;
   background: orange;
-  display: flex;
+  /* display: flex; */
   border-radius:30px ;
   box-shadow: 5px 5px 15px #000;
   border: 1px solid #fff;
 }
 .footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  font-family: monospace;
+  font-size: 25px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  color: #000;
+  position: fixed;
+  bottom: 0px;
   width: 100%;
   height: 60px;
   background: orange;
 }
 .content {
+  /* display: inline-block; */
+  /* display: flex;
+  flex-flow: column wrap;
+  flex-direction: row;  */
   background: rgb(32, 32, 32);
   width: 100%;
   height: 100%;
@@ -180,19 +187,19 @@ export default {
   justify-content: center;
 }
 .sectionOne{
-  position: absolute;
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 1000px;
   background-image: url("@/assets/img/HR 24.jpeg");
   background-size: 100%;
 }
 .firstText{
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: 40%;
   left: 50%;
   transform: translate(-100%,-8em);
   width: 700px;
-  height: 400px;
+  height: 300px;
   word-break: normal;
   font-size: 25px;
   color: #fff;
@@ -208,4 +215,67 @@ export default {
 .firstText span{
   padding-top:100px;
 }
+.firstText h1, span {
+  margin-top: -60px;
+  position: relative;
+}
+.sectionTwo{
+  position: relative;
+  width: 100%;
+  height: 850px;
+  display: flex;
+  background-image: url("@/assets/img/SectionTwo.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-weight: 800;
+  /* position: absolute;
+  height: 500px;
+  width: 100%;
+  background:coral */
+}
+.border{
+  margin-top: -11em;
+  margin-left: 45em;
+  position: relative;
+  /* background-color: purple; */
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  /* background: conic-gradient(#3dffc9,#f7c723,#eb0ea5, #3dffc9); */
+    background-image: url("@/assets/img/Ресурс 15.svg");
+  box-shadow: 0px 0px 150px -75;
+  animation: spin 3.4s linear infinite;
+  border: 4px solid #fff;
+}
+.border::before{
+  /* content: ""; */
+  /* text-align: center; */
+  /* padding: 20px; */
+  /* padding: 40px 150px 40px 40px; */
+  /* color: transparent; */
+  /* font-size: 50px; */
+  /* background: linear-gradient(red, black); */
+  /* background-clip: text; */
+  /* background-color:#fff;
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0px 0px 150px -70;
+  border: 4px solid #fff; */
+}
+
+@keyframes spin {
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+
 </style>
