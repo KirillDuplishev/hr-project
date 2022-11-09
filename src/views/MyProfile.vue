@@ -12,45 +12,42 @@
     button.btn-sidebar.third Кнопка 2
     button.btn-sidebar.third Кнопка 3
     button.btn-sidebar.third Кнопка 4
-  div.block-text
-    h2 Мой профиль
   .content-my-profile
     .first-block
       div.photo-sotr-block
-        h2(style="color: white") Иванов Петр Викторович
-        br
-        img.img-photo(src="../assets/photo-sotrudnikov/free-icon-user-149452.png")
+        img.img-photo(src="../assets/photo-sotrudnikov/free-sticker-man-4825038.png")
     .second-block
+      p.name.h1 Иванов Петр Львович
       .table-block
         div.table-information
-          h2(style="color: white") Общая информация
           table.table_col
             colgroup
               col()
             tr
-              td.table_col-first-td() Статус
-              td Сотрудник
+              td.table_col-first-td.h2 Должность сотрудника
+              td.h4 Технолог
             tr
-              td.table_col-first-td Специальность
-              td Пекарь
+              td.table_col-first-td.h2 Пол
+              td.h4 Мужской
             tr
-              td.table_col-first-td Формат трудоустройства
-              td Сотрудник
+              td.table_col-first-td.h2 Дата трудоустройства
+              td.h4 13.10.2020
+    .third-block
+      .table-block
+        div.table-information
+          table.table_col
+            colgroup
+              col()
             tr
-              td.table_col-first-td Контактный телефон
-              td +7(950)-818-45-32
+              td.table_col-first-td.h2 Почта
+              td.h4 korolev@gmail.com
             tr
-              td.table_col-first-td Почта
-              td korolev@gmail.com
+              td.table_col-first-td.h2 Контактный телефон
+              td.h4 +7(950)-818-45-32
             tr
-              td.table_col-first-td Дата рождения
-              td 25.09.2002
-            tr
-              td.table_col-first-td Дата трудоустройства
-              td 13.10.2020
-            tr
-              td.table_col-first-td Рабочее место
-              td ул. Гагарина д. 3
+              td.table_col-first-td.h2 Дата рождения
+              td.h4 25.09.2000
+  .background-img
   .footer    
 </template>
 
@@ -82,16 +79,15 @@ export default {
 .img{
   width: 50px;
   height:50px;
-  margin:5px 0 0 20px;
-  /* Шадин исправь */
-  /* background: url("D:/hr-project-1/src/assets/Ресурс 6.svg"); */
+  margin:10px 0 0 10px;
+  background: url("@/assets/img/Ресурс6.svg");
   background-repeat: no-repeat;
 }
 .all {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background:#4d4944;
+  background: white;
   min-height: 100vh;
 }
 .header,
@@ -100,35 +96,40 @@ export default {
 }
 
 .header {
-  width: 100%;
-  background: #D5A253;
+  position: relative;
+  z-index: 101;
+  margin:20px;
+  width: calc(100% - 40px);
+  height: 60px;
+  background: orange;
   display: flex;
-  border-radius:0 0 10px 10px ;
-  box-shadow: 5px 5px 5px #000;
+  border-radius:30px ;
+  box-shadow: 5px 5px 15px #000;
+  border: 1px solid #fff;
 }
 .footer {
   /* background: #cc9f4f; */
-  background: #D5A253;
+  z-index: 101;
+  background: orange;
   margin-top: auto;
 }
 .content-my-profile {
-  background: #4d4944;
+  z-index: 101;
   display: flex;
   flex-flow: row wrap;
   width: 100%;
   height: 100%;
-  margin: 10px auto 0 auto;
+  /* padding: 120px 0 0 0; */
+  /* margin: 10px auto 0 auto; */
 }
 .text {
   width: 160px;
   height:inherit;
-  margin-top: 10px;
+  margin-top: 17px;
   margin-left: 10px;
-  /* Шадин исправь */
-  /* background: url("D:/hr-project-1/src/assets/Ресурс 9.svg"); */
+  background: url("@/assets/img/Ресурс9.svg");
   background-repeat: no-repeat;
   background-size: auto;
-
 }
 .ico{
   position: absolute;
@@ -136,6 +137,7 @@ export default {
   justify-content: center;
 }
 .sidebar {
+  z-index: 1000;
   position: absolute;
   top: 105px;
   left: 0px;
@@ -193,6 +195,12 @@ export default {
   position: absolute;
   right: 0px;
 }
+.name{
+  font-size: 30px;
+  position: absolute;
+  margin: 24px 0 0 24px;
+  text-shadow: 3px 3px 10px;
+}
 .burgerHeader{
   font-size: 25px;
   font-family: monospace;
@@ -201,50 +209,18 @@ export default {
   display: flex;
   justify-content: center;
 }
-.block-text {
-  background: #4d4944;
-  padding: 50px 20px;
-  text-align: center;
-} 
-.block-text h2 {
-  font-family: 'Open Sans', sans-serif;
-  position: relative;
-  color: orange;
-  font-size: 3em;
-  font-weight: normal;
-  line-height: 1;
-  padding: 10px 0;
-  margin: 0;
-  display: inline-block;
-}
-.block-text h2:before {
-  content: ""; 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 80%;
-  height: 200%;
-  border-radius: 50%/30%;
-  border: 6px solid orange;
-  border-left-color: transparent;
-  border-right-color: transparent;
-}
-@media (max-width: 420px) {
-  .block-text h2 {font-size: 2em;}
-}
 .table_col {
   margin: auto;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-  font-size: 14px;
+  /* font-family:  Sans-Serif;
+  font-size: 16px; */
   width: auto;
   text-align: left;
   border-collapse: collapse;
   color: #3E4347;
 }
 .table_col-first-td {
-  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-  font-size: 14px;
+  /* /* font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 16px; */
   font-weight: bold;
   width: 150px;
 }
@@ -263,32 +239,54 @@ color: #4d4944;
 .photo-sotr-block {
   width: 300px;
   height: 100%;
-  margin: auto 150px auto auto;
+  margin: auto;
 }
 .table-block {
   width: auto;
   text-align: center;
-  height: 100%;
-  margin: auto 20px auto 150px;
+  /* height: 100%; */
+  margin: 80px auto 0 auto;
 }
 .table-information {
-  background: #cbaa81;
-  border-radius: 5%;
+  margin: auto;
+  background: #ffc17d;
+  border-radius: 30px;
   padding: 10px 50px 10px 50px;
-  width: fit-content;
+  width: 90%;
   text-align: center;
   height: 100%;
 }
 .img-photo{
   width: 100%;
   height: 100%;
+  border: 3px solid #000;
+  border-radius: 50%;
+  box-shadow: 10px 10px 20px #007bff;
+  /* transform: scale(); */
 }
 .first-block {
+  z-index: 101;
   height: 100%;
-  width: 50%;
+  width: 34%;
 }
 .second-block {
+  justify-content: center;
+  vertical-align: middle;
+  /* height: 100%; */
+  width: 33%;
+}
+.third-block {
+  order: 101;
   height: 100%;
-  width: 50%;
+  width: 33%;
+}
+.background-img {
+  position: absolute;
+  bottom: 0px;
+  z-index: 100;
+  width: 100%;
+  height: 50%;
+  background-image: url("@/assets/photo-sotrudnikov/27103695_2204_w046_n004_107a_p1_107.jpg");
+  background-size: 100%;
 }
 </style>

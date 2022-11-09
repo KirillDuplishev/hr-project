@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'SF UI Display';
+    src: local('SF UI Display'), local('SF UI Display'),
+      url('./SFUIText-Medium.woff2') format('woff2'),
+      url('./SFUIText-Medium.woff2') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+.h1 {
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 27px;
+  }
+  .h2 {
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 23px;
+   
+  }
+  .h3 {
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 20px;
+  }
+  .h4 {
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 20px;
+     
+  }
+  .h4-b{
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.5px;  
+  }
+  .text-15 {
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px; 
+    
+  }
+  .text-15-b {
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    
+  }
+  .text-13 {
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .text-11 {
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 15px;
+  }
+  .text-10 {
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+  }
+  
+  
+  
