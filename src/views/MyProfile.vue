@@ -4,6 +4,8 @@
     .ico
       .text
       .img
+    .home-icon(@click="routeMainPage")
+      img.img-home(src="@/assets/img/home-icon.png")
     .block-burger
       BurgerButton  
   SideBarLeft
@@ -66,7 +68,9 @@ export default {
     }
   },
   methods: {
-    
+    routeMainPage() {
+      this.$router.push({path: '/MainPage'})
+    }
   }
 };
 </script>
@@ -75,6 +79,17 @@ export default {
 * {
   margin: 0;
   padding: 0;
+}
+
+.home-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 70px;
+}
+.img-home {
+  width: 32px;
+  height: 30px;
 }
 .img{
   width: 50px;
