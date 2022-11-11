@@ -1,6 +1,6 @@
 <template lang="pug">
-.all
-  .header
+.all(v-scroll="scroll")
+  #header
     .ico
       .img
       .text
@@ -21,8 +21,8 @@
           span Понимая, что необходимо сотрудникам, как они работают и что их мотивирует, вы сможете выработать систему управления персоналом и кадровую стратегию, ориентированную на интересы людей.
           .border
     section.sectionTwo
-    //- div(style="width:100%; height: 800px; background:red;")
-
+      .secondText
+        span Вы сможете навсегда изменить мир трудовых отношений при помощи программных решений для управления человеческим капиталом нового поколения. 
   .footer
     p ORANGE © 2022     
 </template>
@@ -41,8 +41,18 @@ export default {
       
     }
   },
+  mounted(){
+  },
   methods: {
-  }
+    scroll:function(){
+      if(window.scrollY > 980){
+        document.getElementById("header").style.boxShadow = "5px 5px 15px #fff"
+      }
+      else if(window.scrollY < 980){
+        document.getElementById("header").style.boxShadow = "5px 5px 15px #000"
+      }
+    }
+  }  
 };
 </script>
 
@@ -62,7 +72,7 @@ export default {
   background: url("@/assets/img/Ресурс6.svg");
   background-repeat: no-repeat;
 }
-.header {
+#header {
   position: fixed;
   z-index: 100;
   margin:20px;
@@ -274,5 +284,24 @@ export default {
   }
 }
 
-
+/* .secondText{
+  position: relative;
+  top: 40%;
+  left: 50%;
+  transform: translate(-105%,-18em);
+  width: 700px;
+  height: 200px;
+  word-break: normal;
+  font-size: 25px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: left;
+} */
+.secondText span{
+  font-size: 30px;
+  color: #fff;
+  top: -120px;
+}
 </style>

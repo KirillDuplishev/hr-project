@@ -2,8 +2,8 @@
 .all
   .header
     .ico
-      .text
       .img
+      .text
     .block-burger
       BurgerButton  
   SideBarLeft
