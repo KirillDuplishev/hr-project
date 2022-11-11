@@ -8,7 +8,8 @@
       BurgerButton  
   SideBarLeft
     span.burgerHeader Меню
-    button.btn-sidebar.third(@click="$router.push({path: '/myprofile'})") Мой профиль
+    button.btn-sidebar.third(@click="routeMyProfile") Мой профиль
+    button.btn-sidebar.third(@click="routeTraining") Обучение
     button.btn-sidebar.third Расчет ЗП
     button.btn-sidebar.third Рабочий график
     button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
@@ -28,6 +29,7 @@
 </template>
 
 <script>
+import { mutations } from "@/store.js";
 import SideBarLeft from '@/components/SideBarLeft.vue'
 import BurgerButton from '@/components/Burger.vue'
 export default {
@@ -51,8 +53,16 @@ export default {
       else if(window.scrollY < 980){
         document.getElementById("header").style.boxShadow = "5px 5px 15px #000"
       }
+    },
+    routeTraining () {
+      this.$router.push({path: '/training'})
+      mutations.toggleNav() 
+    },
+    routeMyProfile() {
+      this.$router.push({path: '/myprofile'})
+      mutations.toggleNav() 
     }
-  }  
+  }
 };
 </script>
 

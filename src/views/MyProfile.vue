@@ -4,11 +4,13 @@
     .ico
       .img
       .text
+    .home-icon(@click="routeMainPage")
+      img.img-home(src="@/assets/img/home-icon.png")
     .block-burger
       BurgerButton  
   SideBarLeft
     span.burgerHeader Меню
-    button.btn-sidebar.third(@click="$router.push({path: '/myprofile'})") Мой профиль
+    button.btn-sidebar.third(@click="routeTraining") Обучение
     button.btn-sidebar.third Расчет ЗП
     button.btn-sidebar.third Рабочий график
     button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
@@ -52,6 +54,7 @@
 </template>
 
 <script>
+import { mutations } from "@/store.js";
 import SideBarLeft from '@/components/SideBarLeft.vue'
 import BurgerButton from '@/components/Burger.vue'
 export default {
@@ -66,7 +69,13 @@ export default {
     }
   },
   methods: {
-    
+    routeTraining () {
+      this.$router.push({path: '/training'})
+      mutations.toggleNav() 
+    },
+    routeMainPage() {
+      this.$router.push({path: '/MainPage'})
+    }
   }
 };
 </script>
@@ -75,6 +84,17 @@ export default {
 * {
   margin: 0;
   padding: 0;
+}
+
+.home-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 70px;
+}
+.img-home {
+  width: 32px;
+  height: 30px;
 }
 .img{
   width: 50px;
