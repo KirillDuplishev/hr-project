@@ -47,10 +47,10 @@ export default {
   },
   methods: {
     scroll:function(){
-      if(window.scrollY > 980){
+      if(window.scrollY > 950){
         document.getElementById("header").style.boxShadow = "5px 5px 15px #fff"
       }
-      else if(window.scrollY < 980){
+      else if(window.scrollY < 950){
         document.getElementById("header").style.boxShadow = "5px 5px 15px #000"
       }
     },
