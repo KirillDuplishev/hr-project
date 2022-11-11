@@ -9,6 +9,7 @@
   SideBarLeft
     span.burgerHeader Меню
     button.btn-sidebar.third(@click="routeMyProfile") Мой профиль
+    button.btn-sidebar.third(@click="routeTraining") Обучение
     button.btn-sidebar.third Расчет ЗП
     button.btn-sidebar.third Рабочий график
     button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
@@ -43,6 +44,10 @@ export default {
     }
   },
   methods: {
+    routeTraining () {
+      this.$router.push({path: '/training'})
+      mutations.toggleNav() 
+    },
     routeMyProfile() {
       this.$router.push({path: '/myprofile'})
       mutations.toggleNav() 
