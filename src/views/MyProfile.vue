@@ -26,12 +26,15 @@
             colgroup
               col()
             tr
+              img( style="width:40px; height:40px" src="@/assets/img/Doljnost.png")
               td.table_col-first-td.h2 Должность сотрудника
               td.h4 Технолог
             tr
+              img( style="width:40px; height:40px" src="@/assets/img/pol.png")
               td.table_col-first-td.h2 Пол
               td.h4 Мужской
             tr
+              img( style="width:40px; height:40px" src="@/assets/img/data.png")
               td.table_col-first-td.h2 Дата трудоустройства
               td.h4 13.10.2020
     .third-block
@@ -41,12 +44,15 @@
             colgroup
               col()
             tr
+              img( style="width:40px; height:40px" src="@/assets/img/email.png")
               td.table_col-first-td.h2 Почта
               td.h4 korolev@gmail.com
             tr
+              img( style="width:40px; height:40px" src="@/assets/img/phone.png")
               td.table_col-first-td.h2 Контактный телефон
               td.h4 +7(950)-818-45-32
             tr
+              img( style="width:40px; height:40px" src="@/assets/img/dateBirdtday.png")
               td.table_col-first-td.h2 Дата рождения
               td.h4 25.09.2000
   .background-img
@@ -139,6 +145,7 @@ export default {
   flex-flow: row wrap;
   width: 100%;
   height: 100%;
+  margin: 100px 0 0 0;
   /* padding: 120px 0 0 0; */
   /* margin: 10px auto 0 auto; */
 }
@@ -310,5 +317,9 @@ color: #4d4944;
   height: 50%;
   background-image: url("@/assets/photo-sotrudnikov/27103695_2204_w046_n004_107a_p1_107.jpg");
   background-size: 100%;
+}
+tr image {
+  fill:green;
+  padding-left: 10px;
 }
 </style>
