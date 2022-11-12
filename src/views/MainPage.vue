@@ -20,12 +20,12 @@
           h1 Управление человеческим капиталом (HRM)
           br 
           span Понимая, что необходимо сотрудникам, как они работают и что их мотивирует, вы сможете выработать систему управления персоналом и кадровую стратегию, ориентированную на интересы людей.
-          .border
+          //- .border
     section.sectionTwo
-    //- div(style="width:100%; height: 800px; background:red;")
 
   .footer
-    p ORANGE © 2022     
+    p.name ORANGE 
+    p.date © 2022     
 </template>
 
 <script>
@@ -79,7 +79,6 @@ export default {
   width: calc(100% - 40px);
   height: 60px;
   background: orange;
-  /* display: flex; */
   border-radius:30px ;
   box-shadow: 5px 5px 15px #000;
   border: 1px solid #fff;
@@ -99,15 +98,12 @@ export default {
   background: orange;
 }
 .content {
-  /* display: inline-block; */
-  /* display: flex;
-  flex-flow: column wrap;
-  flex-direction: row;  */
   background: rgb(32, 32, 32);
   width: 100%;
   height: 100%;
   margin: 0 auto;
 }
+
 .text {
   width: 160px;
   height:inherit;
@@ -116,7 +112,6 @@ export default {
   background: url("@/assets/img/Ресурс9.svg");
   background-repeat: no-repeat;
   background-size: auto;
-
 }
 .ico{
   position: absolute;
@@ -166,7 +161,6 @@ export default {
 }
 
 .btn-sidebar:hover, .btn:focus {
-  /* color: #fff; */
   outline: 0;
 }
 
@@ -195,20 +189,21 @@ export default {
 }
 .sectionOne{
   position: relative;
-  width: 100%;
-  height: 1000px;
+  width: 100vw;
+  height: 100vh;
   background-image: url("@/assets/img/HR 24.jpeg");
   background-size: 100%;
+  overflow: auto;
 }
 .firstText{
+  display: block;
   position: relative;
-  top: 40%;
+  top: calc(100vh / 2);
   left: 50%;
-  transform: translate(-100%,-8em);
-  width: 700px;
-  height: 300px;
+  transform: translate(-100%,-17em);
+  width: 45vw;
+  height: calc((1/3 * 45vw) + 5vw);
   word-break: normal;
-  font-size: 25px;
   color: #fff;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 20px;
@@ -216,73 +211,52 @@ export default {
   text-align: left;
 }
 .firstText h1{
+  font-size:calc(100vw - 97.5vw);
   padding-bottom:10px ;
   border-bottom: 1px solid #fff;
 }
 .firstText span{
+  font-size:calc(100vw - 98.6vw);
   padding-top:100px;
 }
 .firstText h1, span {
   margin-top: -60px;
-  position: relative;
 }
 .sectionTwo{
   position: relative;
-  width: 100%;
-  height: 850px;
-  display: flex;
+  width: 100vw;
+  height: 100vh;
   background-image: url("@/assets/img/SectionTwo.jpg");
-  background-repeat: no-repeat;
   background-size: 100%;
-  justify-content: center;
-  align-items: center;
-  font-size: 1em;
-  font-weight: 800;
-  /* position: absolute;
-  height: 500px;
-  width: 100%;
-  background:coral */
+  text-align: center;
+}
+.sectionTwo span{
+  /* position: absolute; */
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top:auto; */
+  color: #fff;
+  font-size:calc(100vw - 98.6vw);
 }
 .border{
   margin-top: -11em;
   margin-left: 45em;
   position: relative;
-  /* background-color: purple; */
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  /* background: conic-gradient(#3dffc9,#f7c723,#eb0ea5, #3dffc9); */
     background-image: url("@/assets/img/Ресурс 15.svg");
   box-shadow: 0px 0px 150px -75;
   animation: spin 3.4s linear infinite;
   border: 4px solid #fff;
 }
-.border::before{
-  /* content: ""; */
-  /* text-align: center; */
-  /* padding: 20px; */
-  /* padding: 40px 150px 40px 40px; */
-  /* color: transparent; */
-  /* font-size: 50px; */
-  /* background: linear-gradient(red, black); */
-  /* background-clip: text; */
-  /* background-color:#fff;
-  position: absolute;
-  width: 80%;
-  height: 80%;
-  border-radius: 50%;
-  top:50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: inset 0px 0px 150px -70;
-  border: 4px solid #fff; */
-}
-
 @keyframes spin {
   to{
     transform: rotate(360deg);
   }
 }
 
-
+.name{
+  margin-left: 0 auto;
+}
 </style>
