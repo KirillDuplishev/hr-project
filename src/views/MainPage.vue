@@ -49,10 +49,10 @@ export default {
   },
   methods: {
     scroll:function(){
-      if(window.scrollY > 950){
-        document.getElementById("header").style.boxShadow = "5px 5px 15px #fff"
+      if(window.scrollY > 700){
+        document.getElementById("header").style.boxShadow = "5px 5px 15px white"
       }
-      else if(window.scrollY < 950){
+      else if(window.scrollY < 700){
         document.getElementById("header").style.boxShadow = "5px 5px 15px #000"
       }
     },
@@ -210,7 +210,7 @@ export default {
 .firstText{
   display: block;
   position: relative;
-  top: calc(100vh / 2);
+  top: calc(100vh / 1.7);
   left: 50%;
   transform: translate(-100%,-17em);
   width: 45vw;
@@ -283,10 +283,16 @@ export default {
   padding: 20px;
   text-align: left;
 } */
+.secondText{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-130%);
+  width: calc(100vw - 100px);
+}
 .secondText span{
-  font-size: 30px;
+  font-size:calc(100vw - 97vw);
   color: #fff;
-  top: -120px;
 }  
 .name{
   margin-left: 0 auto;

@@ -95,8 +95,8 @@ button:hover {
 }
 
 .container {
-  width: 15.5vw ;
-  height: calc(15.5vw / 1.1);
+  width: 18vw ;
+  height: calc(18vw / 1.1);
   background: #fff;
   position: absolute;
   top:50%;

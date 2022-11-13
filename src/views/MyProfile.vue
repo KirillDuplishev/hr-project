@@ -145,7 +145,7 @@ export default {
   flex-flow: row wrap;
   width: 100%;
   height: 100%;
-  margin: 100px 0 0 0;
+  margin: 2vh 0 0 0;
   /* padding: 120px 0 0 0; */
   /* margin: 10px auto 0 auto; */
 }
