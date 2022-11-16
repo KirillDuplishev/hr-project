@@ -10,8 +10,7 @@
     span.burgerHeader Меню
     button.btn-sidebar.third(@click="routeMyProfile") Мой профиль
     button.btn-sidebar.third(@click="routeTraining") Обучение
-    button.btn-sidebar.third Расчет ЗП
-    button.btn-sidebar.third Рабочий график
+    button.btn-sidebar.third(@click="routeWorkSchedule") Рабочий график
     button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
   .content
     section.sectionOne
@@ -55,6 +54,10 @@ export default {
       else if(window.scrollY < 700){
         document.getElementById("header").style.boxShadow = "5px 5px 15px #000"
       }
+    },
+    routeWorkSchedule() {
+      this.$router.push({path: '/workschedule'})
+      mutations.toggleNav() 
     },
     routeTraining () {
       this.$router.push({path: '/training'})
