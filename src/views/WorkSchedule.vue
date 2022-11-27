@@ -12,16 +12,18 @@ div
     SideBarLeft
       span.burgerHeader Меню
       button.btn-sidebar.third(@click="routeMyProfile") Мой профиль
-      button.btn-sidebar.third Расчет ЗП
-      button.btn-sidebar.third Рабочий график
+      button.btn-sidebar.third(@click="routeTraining") Обучение
       button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
     div.main-calendar-block
       div.calendar-block
-        VueWeekScheduler(
-          v-model="events"
-          :config="config"
-          :editable="editable"
-        )
+        v-app.calendar
+          VueWeekScheduler(
+            v-model="events"
+            :config="config"
+            :editable="editable"
+          )
+      .check-img
+
     .background-img
     .footer    
   </template>
@@ -44,7 +46,7 @@ div
         editable: true,
         config: {
           periodBackgroundColor: "#F44336",
-          periodTitle: 0,
+          // periodTitle: 0,
           periodTextColor: "#fff",
           periodBorderColor: "#ccc",
           daysList: [    // list of days labels
@@ -60,6 +62,10 @@ div
       }
     },
     methods: {
+      routeTraining () {
+        this.$router.push({path: '/training'})
+        mutations.toggleNav() 
+      },
       routeMainPage() {
         this.$router.push({path: '/MainPage'})
       },
@@ -90,6 +96,10 @@ strong {
   .calendar-block {
     width: 60%;
     height: 100%;
+  }
+
+  .calendar {
+    z-index: 300;
   }
   .home-icon {
     cursor: pointer;
@@ -229,7 +239,18 @@ strong {
     z-index: 100;
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: white;
     background-size: 100%;
+  }
+  .check-img{
+    margin-top: -250px;
+    width: 40%;
+    height: 1100px;
+    background: url("@/assets/img/Check2.png");
+    background-repeat:no-repeat ;
+    transform: scale(0.5);
+    /* background-position: 80%; */
+    /* backdrop-filter: invert(60%); */
+    /* background-position-x: 180%; */
   }
   </style>

@@ -63,15 +63,15 @@ div
             p.h3(v-if="h3EighttenPunkt") {{h3EighttenPunkt}}
             p.h3(v-if="h3NinetenPunkt") {{h3NinetenPunkt}}
             p.h3(v-if="h3TwentenPunkt") {{h3TwentenPunkt}}
-            p.h3(v-if="h3TwentenOnePunkt") {{h3TwentenOnePunkt}}
-            p.h3(v-if="h3TwentenTwoPunkt") {{h3TwentenTwoPunkt}}
-            p.h3(v-if="h3TwentenThreePunkt") {{h3TwentenThreePunkt}}
-            p.h3(v-if="h3TwentenForPunkt") {{h3TwentenForPunkt}}
-            p.h3(v-if="h3TwentenFivePunkt") {{h3TwentenFivePunkt}}
-            p.h3(v-if="h3TwentenSixPunkt") {{h3TwentenSixPunkt}}
-            p.h3(v-if="h3TwentenSevenPunkt") {{h3TwentenSevenPunkt}}
-            p.h3(v-if="h3TwentenEightPunkt") {{h3TwentenEightPunkt}}
-            p.h3(v-if="h3TwentenNinePunkt") {{h3TwentenNinePunkt}}
+            p.h3(v-if="h3TwenteOnePunkt") {{h3TwenteOnePunkt}}
+            p.h3(v-if="h3TwenteTwoPunkt") {{h3TwenteTwoPunkt}}
+            p.h3(v-if="h3TwenteThreePunkt") {{h3TwenteThreePunkt}}
+            p.h3(v-if="h3TwenteForPunkt") {{h3TwenteForPunkt}}
+            p.h3(v-if="h3TwenteFivePunkt") {{h3TwenteFivePunkt}}
+            p.h3(v-if="h3TwenteSixPunkt") {{h3TwenteSixPunkt}}
+            p.h3(v-if="h3TwenteSevenPunkt") {{h3TwenteSevenPunkt}}
+            p.h3(v-if="h3TwenteEightPunkt") {{h3TwenteEightPunkt}}
+            p.h3(v-if="h3TwenteNinePunkt") {{h3TwenteNinePunkt}}
             p.h3(v-if="h3ThreeteenPunkt") {{h3ThreeteenPunkt}}
             p.h3(v-if="h3ThreeteOnePunkt") {{h3ThreeteOnePunkt}}
             p.h3(v-if="h3ThreeteTwoPunkt") {{h3ThreeteTwoPunkt}}
@@ -83,13 +83,13 @@ div
             p.h3(v-if="h3ThreeteEightPunkt") {{h3ThreeteEightPunkt}}
             p.h3(v-if="h3ThreeteNinePunkt") {{h3ThreeteNinePunkt}}
             p.h3(v-if="h3ForteenPunkt") {{h3ForteenPunkt}}
-            p.h3(v-if="h3ForteOnePunkt") {{h3ForteOnePunkt}}
-            p.h3(v-if="h3ForteTwoPunkt") {{h3ForteTwoPunkt}}
-            p.h3(v-if="h3ForteThreePunkt") {{h3ForteThreePunkt}}
-            p.h3(v-if="h3ForteForPunkt") {{h3ForteForPunkt}}
-            p.h3(v-if="h3ForteFivePunkt") {{h3ForteFivePunkt}}
-            p.h3(v-if="h3ForteSixPunkt") {{h3ForteSixPunkt}}
-            p.h3(v-if="h3ForteSevenPunkt") {{h3ForteSevenPunkt}}
+            p.h3(v-if="h3ForteenOnePunkt") {{h3ForteenOnePunkt}}
+            p.h3(v-if="h3ForteenTwoPunkt") {{h3ForteenTwoPunkt}}
+            p.h3(v-if="h3ForteenThreePunkt") {{h3ForteenThreePunkt}}
+            p.h3(v-if="h3ForteenForPunkt") {{h3ForteenForPunkt}}
+            p.h3(v-if="h3ForteenFivePunkt") {{h3ForteenFivePunkt}}
+            p.h3(v-if="h3ForteenSixPunkt") {{h3ForteenSixPunkt}}
+            p.h3(v-if="h3ForteenSevenPunkt") {{h3ForteenSevenPunkt}}
           v-divider
           v-card-actions.background(:class="{'background-blue' : dialogBlue}")
             v-spacer

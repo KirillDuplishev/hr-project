@@ -12,8 +12,7 @@ div
     SideBarLeft
       span.burgerHeader Меню
       button.btn-sidebar.third(@click="routeMyProfile") Мой профиль
-      button.btn-sidebar.third Расчет ЗП
-      button.btn-sidebar.third Рабочий график
+      button.btn-sidebar.third(@click="routeWorkSchedule") Рабочий график
       button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
     .content-block
       .first-main-block 
@@ -75,7 +74,7 @@ div
                   h1.h1.white-color Кросс-продажи
         .block-test-button
           button.btn-test.h1() Тест
-      DialogWindow(:dialog="dialog" :dialogBlue="dialogBlue" @closeDialog="closeDialog" :h1="h1" :h1FirstPunkt="h1FirstPunkt" :h1SecondPunkt="h1SecondPunkt" :h1ThreePunkt="h1ThreePunkt" :h1ForPunkt="h1ForPunkt" :h1FivePunkt="h1FivePunkt" :h1SixPunkt="h1SixPunkt" :h1SevenxePunkt="h1SevenPunkt" :h1EightPunkt="h1EightPunkt" :h1NinePunkt="h1NinePunkt" :h1TenPunkt="h1TenPunkt" :h1ElevenPunkt="h1ElevenPunkt" :h1TwelvePunkt="h1TwelvePunkt" :h1ThreetenPunkt="h1ThreetenPunkt" :h1FortenPunkt="h1FortenPunkt" :h1FeftenPunkt="h1FeftenPunkt" :h2="h2" :h2FirstPunkt="h2FirstPunkt" :h2SecondPunkt="h2SecondPunkt" :h2ThreePunkt="h2ThreePunkt" :h2ForPunkt="h2ForPunkt" :h2FivePunkt="h2FivePunkt" :h2SixPunkt="h2SixPunkt" :h2SevenPunkt="h2SevenPunkt" :h2EightPunkt="h2EightPunkt" :h2NinePunkt="h2NinePunkt" :h2TenPunkt="h2TenPunkt" :h2ElevenPunkt="h2ElevenPunkt" :h2TwelvePunkt="h2TwelvePunkt" :h2ThreetenPunkt="h2ThreetenPunkt" :h2FortenPunkt="h2FortenPunkt" :h2FeftenPunkt="h2FeftenPunkt" :h3FirstPunkt="h3FirstPunkt" :h3SecondPunkt="h3SecondPunkt" :h3ThreePunkt="h3ThreePunkt" :h3ForPunkt="h3ForPunkt" :h3FivePunkt="h3FivePunkt" :h3SixPunkt="h3SixPunkt" :h3SevenxePunkt="h3SevenPunkt" :h3EightPunkt="h3EightPunkt" :h3NinePunkt="h3NinePunkt" :h3TenPunkt="h3TenPunkt" :h3ElevenPunkt="h3ElevenPunkt" :h3TwelvePunkt="h3TwelvePunkt" :h3ThreetePunkt="h3ThreetePunkt" :h3FortenPunkt="h3FortenPunkt" :h3FeftenPunkt="h3FeftenPunkt" :h3SixtenPunkt="h3SixtenPunkt" :h3SeventenPunkt="h3SeventenPunkt" :h3EighttenPunkt="h3EighttenPunkt" :h3NinetenPunkt="h3NinetenPunkt" :h3TwentenPunkt="h3TwentenPunkt" :h3TwenteOnePunkt="h3TwenteOnePunkt" :h3TwenteTwoPunkt="h3TwenteTwoPunkt" :h3TwenteThreePunkt="h3TwenteThreePunkt" :h3TwenteForPunkt="h3TwenteForPunkt" :h3TwenteFivePunkt="h3TwenteFivePunkt" :h3TwenteSixPunkt="h3TwenteSixPunkt" :h3TwenteSevenPunkt="h3TwenteSevenPunkt" :h3TwenteEightPunkt="h3TwenteEightPunkt" :h3TwenteNinePunkt="h3TwenteNinePunkt" :h3ThreetenPunkt="h3ThreetenPunkt" :h3ThreeteOnePunkt="h3ThreeteOnePunkt" :h3ThreeteTwoPunkt="h3ThreeteTwoPunkt" :h3ThreeteThreePunkt="h3ThreeteThreePunkt" :h3ThreeteForPunkt="h3ThreeteForPunkt" :h3ThreeteFivePunkt="h3ThreeteFivePunkt" :h3ThreeteSixPunkt="h3ThreeteSixPunkt" :h3ThreeteSevenPunkt="h3ThreeteSevenPunkt" :h3ThreeteEightPunkt="h3ThreeteEightPunkt" :h3ThreeteNinePunkt="h3ThreeteNinePunkt" :h3ForteenPunkt="h3ForteenPunkt" :h3ForteenOnePunkt="h3ForteenOnePunkt" :h3ForteenTwoPunkt="h3ForteenTwoPunkt" :h3ForteenThreePunkt="h3ForteenThreePunkt" :h3ForteenForPunkt="h3ForteenForPunkt" :h3ForteenFivePunkt="h3ForteenFivePunkt" :h3ForteenSixPunkt="h3ForteenSixPunkt" :h3ForteenSevenPunkt="h3ForteenSevenPunkt" :h1Text="h1Text" :h2Text="h2Text" :h3="h3" :title="titleDialog")
+      DialogWindow(:dialog="dialog" :dialogBlue="dialogBlue" @closeDialog="closeDialog" :h1="h1" :h1FirstPunkt="h1FirstPunkt" :h1SecondPunkt="h1SecondPunkt" :h1ThreePunkt="h1ThreePunkt" :h1ForPunkt="h1ForPunkt" :h1FivePunkt="h1FivePunkt" :h1SixPunkt="h1SixPunkt" :h1SevenPunkt="h1SevenPunkt" :h1EightPunkt="h1EightPunkt" :h1NinePunkt="h1NinePunkt" :h1TenPunkt="h1TenPunkt" :h1ElevenPunkt="h1ElevenPunkt" :h1TwelvePunkt="h1TwelvePunkt" :h1ThreetenPunkt="h1ThreetenPunkt" :h1FortenPunkt="h1FortenPunkt" :h1FeftenPunkt="h1FeftenPunkt" :h2="h2" :h2FirstPunkt="h2FirstPunkt" :h2SecondPunkt="h2SecondPunkt" :h2ThreePunkt="h2ThreePunkt" :h2ForPunkt="h2ForPunkt" :h2FivePunkt="h2FivePunkt" :h2SixPunkt="h2SixPunkt" :h2SevenPunkt="h2SevenPunkt" :h2EightPunkt="h2EightPunkt" :h2NinePunkt="h2NinePunkt" :h2TenPunkt="h2TenPunkt" :h2ElevenPunkt="h2ElevenPunkt" :h2TwelvePunkt="h2TwelvePunkt" :h2ThreetenPunkt="h2ThreetenPunkt" :h2FortenPunkt="h2FortenPunkt" :h2FeftenPunkt="h2FeftenPunkt" :h3FirstPunkt="h3FirstPunkt" :h3SecondPunkt="h3SecondPunkt" :h3ThreePunkt="h3ThreePunkt" :h3ForPunkt="h3ForPunkt" :h3FivePunkt="h3FivePunkt" :h3SixPunkt="h3SixPunkt" :h3SevenPunkt="h3SevenPunkt" :h3EightPunkt="h3EightPunkt" :h3NinePunkt="h3NinePunkt" :h3TenPunkt="h3TenPunkt" :h3ElevenPunkt="h3ElevenPunkt" :h3TwelvePunkt="h3TwelvePunkt" :h3ThreetePunkt="h3ThreetePunkt" :h3FortenPunkt="h3FortenPunkt" :h3FeftenPunkt="h3FeftenPunkt" :h3SixtenPunkt="h3SixtenPunkt" :h3SeventenPunkt="h3SeventenPunkt" :h3EighttenPunkt="h3EighttenPunkt" :h3NinetenPunkt="h3NinetenPunkt" :h3TwentePunkt="h3TwentenPunkt" :h3TwenteOnePunkt="h3TwenteOnePunkt" :h3TwenteTwoPunkt="h3TwenteTwoPunkt" :h3TwenteThreePunkt="h3TwenteThreePunkt" :h3TwenteForPunkt="h3TwenteForPunkt" :h3TwenteFivePunkt="h3TwenteFivePunkt" :h3TwenteSixPunkt="h3TwenteSixPunkt" :h3TwenteSevenPunkt="h3TwenteSevenPunkt" :h3TwenteEightPunkt="h3TwenteEightPunkt" :h3TwenteNinePunkt="h3TwenteNinePunkt" :h3ThreeteenPunkt="h3ThreeteenPunkt" :h3ThreeteOnePunkt="h3ThreeteOnePunkt" :h3ThreeteTwoPunkt="h3ThreeteTwoPunkt" :h3ThreeteThreePunkt="h3ThreeteThreePunkt" :h3ThreeteForPunkt="h3ThreeteForPunkt" :h3ThreeteFivePunkt="h3ThreeteFivePunkt" :h3ThreeteSixPunkt="h3ThreeteSixPunkt" :h3ThreeteSevenPunkt="h3ThreeteSevenPunkt" :h3ThreeteEightPunkt="h3ThreeteEightPunkt" :h3ThreeteNinePunkt="h3ThreeteNinePunkt" :h3ForteenPunkt="h3ForteenPunkt" :h3ForteenOnePunkt="h3ForteenOnePunkt" :h3ForteenTwoPunkt="h3ForteenTwoPunkt" :h3ForteenThreePunkt="h3ForteenThreePunkt" :h3ForteenForPunkt="h3ForteenForPunkt" :h3ForteenFivePunkt="h3ForteenFivePunkt" :h3ForteenSixPunkt="h3ForteenSixPunkt" :h3ForteenSevenPunkt="h3ForteenSevenPunkt" :h1Text="h1Text" :h2Text="h2Text" :h3="h3" :title="titleDialog")
     .background-img
     .footer
 </template>
@@ -145,7 +144,7 @@ div
         h3SeventenPunkt: "",
         h3EighttenPunkt: "",
         h3NinetenPunkt: "",
-        h3TwentenPunkt: "",
+        h3TwentePunkt: "",
         h3TwenteOnePunkt: "",
         h3TwenteTwoPunkt: "",
         h3TwenteThreePunkt: "",
@@ -182,6 +181,10 @@ div
       }
     },
     methods: {
+      routeWorkSchedule() {
+        this.$router.push({path: '/workschedule'})
+        mutations.toggleNav() 
+      },
       closeDialog() {
         this.dialog = false
       },
@@ -236,7 +239,7 @@ div
         this.h3SeventenPunkt = null,
         this.h3EighttenPunkt = null,
         this.h3NinetenPunkt = null,
-        this.h3TwentenPunkt = null,
+        this.h3TwentePunkt = null,
         this.h3TwenteOnePunkt = null,
         this.h3TwenteTwoPunkt = null,
         this.h3TwenteThreePunkt = null,
@@ -418,16 +421,16 @@ div
         this.h3EighttenPunkt = " -покидать кассовую кабину без уведомления старшего кассира и не выйдя из режима кассира на ККМ.",
         this.h3NinetenPunkt = " -самостоятельно вносить изменения в программу работы кассового терминала (для чего последний должен иметь защиту от несанкционированного доступа);",
         this.h3TwentePunkt = "-не должен иметь в кассе личных денег, не учтенных через кассовую машину (кроме денег, выданных перед началом работы)."
-        this.h3TwenteOnePunkt = "-иметь в кассе личные вещи, пакеты, сумки;"
+        this.h3TwenteOnePunkt = "-иметь в кассе личные вещи, пакеты, сумки, деньги;"
         this.h3TwenteTwoPunkt = "-приводить себя и форму в порядок (только в специально отведенном для этого месте);"
         this.h3TwenteThreePunkt = " -находиться на рабочем месте без формы и бэйджа;"
         this.h3TwenteForPunkt = "-употреблять на рабочем месте в пищу продукты, даже оплаченные в кассе (жевать что-либо);"
         this.h3TwenteFivePunkt = " -вести на рабочем месте разговоры с родственниками и знакомыми;"
         this.h3TwenteSixPunkt = "-громко говорить, кричать."
         this.h3TwenteSevenPunkt = "14)Продавец-кассир помогает упаковать товар покупателю, если нет другого покупателя.Продавец –кассир обязан строго придерживается следующей формы приветствия:"
-        this.h3TwenteEightPunkt = "• При появлении покупателя – поприветствовать покупателя УЛЫБКОЙ и словами «Здравствуйте»"
-        this.h3TwenteNinePunkt = "• Перед сообщением о сумме покупке поинтересоваться есть ли у покупателя Дисконтная карта."
-        this.h3ThreeteenPunkt = "• После оформление покупки — попрощаться с покупателем словами «Спасибо за покупку. Ждем Вас снова»."
+        this.h3TwenteEightPunkt = "-При появлении покупателя – поприветствовать покупателя УЛЫБКОЙ и словами «Здравствуйте»"
+        this.h3TwenteNinePunkt = "-Перед сообщением о сумме покупке поинтересоваться есть ли у покупателя Дисконтная карта."
+        this.h3ThreeteenPunkt = "-После оформление покупки — попрощаться с покупателем словами «Спасибо за покупку. Ждем Вас снова»."
         this.h3ThreeteOnePunkt = "2. Права. ",
         this.h3ThreeteTwoPunkt = "Продавец-кассир имеет право:",
         this.h3ThreeteThreePunkt = "1) вносить предложения руководству предприятия по улучшению работы, относящейся к функциональным обязанностям продавца-кассира и всего предприятия в целом;",

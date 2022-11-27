@@ -11,8 +11,7 @@
   SideBarLeft
     span.burgerHeader Меню
     button.btn-sidebar.third(@click="routeTraining") Обучение
-    button.btn-sidebar.third Расчет ЗП
-    button.btn-sidebar.third Рабочий график
+    button.btn-sidebar.third(@click="routeWorkSchedule") Рабочий график
     button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
   .content-my-profile
     .first-block
@@ -69,6 +68,10 @@ export default {
     }
   },
   methods: {
+    routeWorkSchedule() {
+      this.$router.push({path: '/workschedule'})
+      mutations.toggleNav() 
+    },
     routeTraining () {
       this.$router.push({path: '/training'})
       mutations.toggleNav() 
