@@ -1,12 +1,12 @@
 <template lang="pug">
-  form
+  .form
     .imgcontainer
       img.avatar( style="width:33vw; height:calc(33vw / 2); padding:20px 10px 10px 10px" src="@/assets/img/Ресурс16.svg" alt="Avatar")
 
     .container
       label( for="uname")
       b Логин
-      input( v-model="login" type="text" placeholder="Введите логин" name="uname" required)
+      input( v-model="email" type="text" placeholder="Введите логин" name="uname" required)
 
       label( for="psw")
       b Пароль
@@ -14,10 +14,13 @@
 
       div( style="color: red") {{ error }}
 
-      button( type="submit" @click="checkinf") Войти
+      button(type="button" @click="checkinf") Войти 
+      //- span 
+      //- button(type="button" @click="saveUser") Создать
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name:"LoginMenu",
   data() {
@@ -25,18 +28,30 @@ export default {
       dialog: false,
       error: null,
       compName: "",
-      login: "",
+      email: "",
       pass: "",
     }
   },
   methods: {
     checkinf() {
-      if (this.pass == "super" && this.login == "admin") {
-        this.$router.push({path: '/MainPage'});
-      } else {
+      axios.post(`http://localhost:8090/user/login?email=${this.email}&password=${this.pass}`)
+      .then((user) => {
+        localStorage.setItem('userUUID', user.data.uuid);
+        localStorage.setItem('userRole', user.data.role);
+        if(user.data.role == 'admin')
+          this.$router.push({path: '/adminPanel'});
+        else
+          this.$router.push({path: '/mainpage'});
+
+      })
+      .catch(() => {
         this.error = "Неправильный логин или пароль. Попробуйте еще раз.";
-      }
+      })
     },
+
+    saveUser(){
+      this.$router.push({path: '/addUser'});
+    }
   }
 }
 </script>
@@ -44,15 +59,15 @@ export default {
 *{
   font-family: monospace;
 }
-form {
+.form {
   background-image: url("@/assets/img/Autoback.jpg");
   background-size: 100%;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 label{
   font-size:calc(100vw - 98.6vw);
-  width: 100vw;
+  min-width: 100vw;
 }
 input[type=text], input[type=password] {
   width: 100% ;

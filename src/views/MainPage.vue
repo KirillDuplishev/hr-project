@@ -11,6 +11,7 @@
     button.btn-sidebar.third(@click="routeMyProfile") Мой профиль
     button.btn-sidebar.third(@click="routeTraining") Обучение
     button.btn-sidebar.third(@click="routeWorkSchedule") Рабочий график
+    //- button.btn-sidebar.third( v-show="routeAddUser" @click="createUser") Новый пользователь
     button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
   .content
     section.sectionOne
@@ -46,6 +47,15 @@ export default {
   },
   mounted(){
   },
+  computed:{
+    routeAddUser() {
+      if(localStorage.getItem('userRole') == 'admin'){
+        return true
+      }  
+      else
+        return false  
+    }
+  },
   methods: {
     scroll:function(){
       if(window.scrollY > 700){
@@ -65,6 +75,10 @@ export default {
     },
     routeMyProfile() {
       this.$router.push({path: '/myprofile'})
+      mutations.toggleNav() 
+    },
+    createUser(){
+      this.$router.push({path: '/addUser'})
       mutations.toggleNav() 
     }
   }

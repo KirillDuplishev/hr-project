@@ -4,9 +4,9 @@
     .ico
       .img
       .text
-    .home-icon(@click="routeMainPage")
+    .home-icon(v-show="this.role != 'admin'" @click="routeMainPage")
       img.img-home(src="@/assets/img/home-icon.png")
-    .block-burger
+    .block-burger(v-show="this.role != 'admin'")
       BurgerButton  
   SideBarLeft
     span.burgerHeader Меню
@@ -18,7 +18,7 @@
       div.photo-sotr-block
         img.img-photo(src="../assets/photo-sotrudnikov/free-sticker-man-4825038.png")
     .second-block
-      p.name.h1 Иванов Петр Львович
+      p.name.h1 {{this.firstName}} {{this.lastName}} {{this.middleName }}
       .table-block
         div.table-information
           table.table_col
@@ -26,13 +26,13 @@
               col()
             tr
               td.table_col-first-td.h2 Должность сотрудника
-              td.h4 Технолог
+              td.h4 {{this.role}}
             tr
               td.table_col-first-td.h2 Пол
-              td.h4 Мужской
+              td.h4 {{this.sex}}
             tr
               td.table_col-first-td.h2 Дата трудоустройства
-              td.h4 13.10.2020
+              td.h4 {{this.datedOfEmployment}}
     .third-block
       .table-block
         div.table-information
@@ -41,13 +41,15 @@
               col()
             tr
               td.table_col-first-td.h2 Почта
-              td.h4 korolev@gmail.com
+              td.h4 {{this.email}}
             tr
               td.table_col-first-td.h2 Контактный телефон
-              td.h4 +7(950)-818-45-32
+              td.h4 {{this.phone}}
             tr              
               td.table_col-first-td.h2 Дата рождения
-              td.h4 25.09.2000
+              td.h4 {{this.dateOfbirth}}
+    span(v-show="this.role == 'admin'")
+      employmenthistory(style="position:absolute")
   .background-img
   .footer    
 </template>
@@ -56,16 +58,63 @@
 import { mutations } from "@/store.js";
 import SideBarLeft from '@/components/SideBarLeft.vue'
 import BurgerButton from '@/components/Burger.vue'
+import axios from 'axios'
+import employmenthistory from './EmploymentHistory.vue'
 export default {
   name:"MainPage",
   components: {
     SideBarLeft,
     BurgerButton,
+    employmenthistory
   },
   data() {
     return {
-      
+      firstName:"",
+      lastName:"",
+      middleName:"",
+      sex:"",
+      phone:"",
+      email:"",
+      role:"",
+      datedOfEmployment:"",
+      dateOfbirth:""
     }
+  },
+  mounted(){
+      if(localStorage.getItem('userRole' != 'admin')){
+        axios.get(`http://localhost:8090/user/${localStorage.getItem('userUUID')}`)
+        .then((user) => {
+          this.firstName = user.data.firstName 
+          this.lastName = user.data.lastName
+          this.middleName = user.data.middleName 
+          this.sex = user.data.sex
+          this.phone = user.data.phone
+          this.email = user.data.email
+          this.role = user.data.role
+          this.datedOfEmployment = user.data.datedOfEmployment
+          this.dateOfbirth = user.data.dateOfbirth
+        })
+        .catch((error) => {
+          alert(error)
+        });
+      }
+      else{
+        axios.get(`http://localhost:8090/user/${localStorage.getItem('adminUsers')}`)
+        .then((user) => {
+          this.firstName = user.data.firstName 
+          this.lastName = user.data.lastName
+          this.middleName = user.data.middleName 
+          this.sex = user.data.sex
+          this.phone = user.data.phone
+          this.email = user.data.email
+          this.role = user.data.role
+          this.datedOfEmployment = user.data.datedOfEmployment
+          this.dateOfbirth = user.data.dateOfbirth
+        })
+        .catch((error) => {
+          alert(error)
+        });
+      }  
   },
   methods: {
     routeWorkSchedule() {
@@ -78,7 +127,7 @@ export default {
     },
     routeMainPage() {
       this.$router.push({path: '/MainPage'})
-    }
+    },
   }
 };
 </script>
@@ -120,7 +169,7 @@ export default {
 
 .header {
   position: relative;
-  z-index: 101;
+  z-index: 99;
   margin:20px;
   width: calc(100% - 40px);
   height: 60px;
@@ -137,7 +186,7 @@ export default {
   margin-top: auto;
 }
 .content-my-profile {
-  z-index: 101;
+  z-index: 99;
   display: flex;
   flex-flow: row wrap;
   width: 100%;
@@ -162,7 +211,7 @@ export default {
 }
 .sidebar {
   z-index: 1000;
-  position: absolute;
+  position: relative;
   top: 105px;
   left: 0px;
   background: #fae8b9;
@@ -291,7 +340,7 @@ color: #4d4944;
   /* transform: scale(); */
 }
 .first-block {
-  z-index: 101;
+  z-index: 99;
   height: 100%;
   width: 34%;
 }
@@ -302,19 +351,27 @@ color: #4d4944;
   width: 33%;
 }
 .third-block {
-  order: 101;
+  order: 100;
   height: 100%;
   width: 33%;
 }
 .background-img {
   position: absolute;
   bottom: 0px;
-  z-index: 100;
+  z-index: 90;
   width: 100%;
   height: 50%;
   background-image: url("@/assets/photo-sotrudnikov/27103695_2204_w046_n004_107a_p1_107.jpg");
   background-size: 100%;
 }
+.background-img a{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-5em);
+  font-size: 25px;
+  color: #000;
+} 
 tr image {
   fill:green;
   padding-left: 10px;

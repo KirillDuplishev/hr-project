@@ -6,7 +6,8 @@ import MainPage from '../views/MainPage.vue'
 import MyProfile from '../views/MyProfile.vue'
 import TrainingPage from '../views/TrainingPage.vue'
 import WorkSchedule from '../views/WorkSchedule.vue'
-
+import AddNewUser from '../views/AddNewUser.vue'
+import AdminPanel from '../views/AdminPanel.vue'
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -31,6 +32,14 @@ export default new VueRouter({
     {
       path:'/workschedule',
       component: WorkSchedule
+    },
+    {
+      path:'/addUser',
+      component: AddNewUser
+    },
+    {
+      path:'/adminPanel',
+      component: AdminPanel
     }
   ]
 })
