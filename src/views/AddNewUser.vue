@@ -48,13 +48,28 @@ v-app
 
         br
         
-        label( for="db") Дата рождения:
+        label( for="db") 
+        b Дата рождения:
         input( v-model="dateOfbirth" type="date" name="db" required)
         
         br
         
-        label( for="dw") Дата трудоустройства:
+        label( for="dw") 
+        b Дата трудоустройства:
         input( v-model="datedOfEmployment" type="date" name="dw" required)
+        
+        br
+        
+        label( for="snils") 
+        b Номер СНИЛСа:
+        input( v-model="snils" type="text" name="snils" required)
+        
+        br
+        
+        label( for="ed") 
+        //- b Образование:
+        v-select(v-model="education" :items="allEducation" outlined label="Образование")
+        //- input( v-model="education" type="text" name="ed" required)
         
         button(type="button" @click="qwe") asdasdasd
         button(type="button" @click="saveUser") Создать подьзователья
@@ -87,10 +102,13 @@ export default {
       sex:"",
       phone:"",
       role:"",
+      snils:"",
+      education:"",
       datedOfEmployment:"",
       dateOfbirth:"",
       sexSelect:['Мужской', 'Женский'],
-      roleSelect:['Руководитель', 'Сотрудник', 'admin']
+      roleSelect:['Руководитель', 'Сотрудник', 'admin'],
+      allEducation:['Среднее образование','Средне-специальное образование', 'Высшее образование']
     }
   },
   methods: {
@@ -99,8 +117,8 @@ export default {
       console.log(this.keyRole);
       console.log(this.keySex);
       console.log(this.email);
-      console.log(this.datedOfEmployment.replace("T", ' '));
-      console.log(this.dateOfbirth.replace("T", ' '));
+      console.log(this.datedOfEmployment);
+      console.log(this.dateOfbirth);
     },
     saveUser(){
       axios.post(`http://localhost:8090/user`, {
@@ -112,8 +130,10 @@ export default {
         email: this.email,
         password: this.password,
         role: this.keyRole,
-        // datedOfEmployment: "21-10-10",
-        // dateOfbirth: "21-10-10"
+        datedOfEmployment: this.datedOfEmployment.toString(),
+        dateOfbirth: this.dateOfbirth.toString(),
+        snils: this.snils,
+        education: this.education
       })
       .then((user) => {
         alert("SUCCESS", user)

@@ -15,8 +15,10 @@
     button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
   .content-my-profile
     .first-block
-      div.photo-sotr-block
+      div.photo-sotr-block(v-if="this.sex == 'Мужской'")
         img.img-photo(src="../assets/photo-sotrudnikov/free-sticker-man-4825038.png")
+      div.photo-sotr-block(v-if="this.sex == 'Женский'")
+        img.img-photo(src="../assets/photo-sotrudnikov/free-sticker-woman-4825027.png")
     .second-block
       p.name.h1 {{this.firstName}} {{this.lastName}} {{this.middleName }}
       .table-block
@@ -48,8 +50,10 @@
             tr              
               td.table_col-first-td.h2 Дата рождения
               td.h4 {{this.dateOfbirth}}
-    span(v-show="this.role == 'admin'")
+    span(v-show="showEmploymenthistory")
       employmenthistory(style="position:absolute")
+    span(v-show="showEmploymenthistory")
+      medicalbook(style="position:absolute")
   .background-img
   .footer    
 </template>
@@ -60,12 +64,14 @@ import SideBarLeft from '@/components/SideBarLeft.vue'
 import BurgerButton from '@/components/Burger.vue'
 import axios from 'axios'
 import employmenthistory from './EmploymentHistory.vue'
+import medicalbook from './MedicalBook.vue'
 export default {
   name:"MainPage",
   components: {
     SideBarLeft,
     BurgerButton,
-    employmenthistory
+    employmenthistory,
+    medicalbook
   },
   data() {
     return {
@@ -81,7 +87,7 @@ export default {
     }
   },
   mounted(){
-      if(localStorage.getItem('userRole' != 'admin')){
+      if(localStorage.getItem('userRole') != 'admin'){
         axios.get(`http://localhost:8090/user/${localStorage.getItem('userUUID')}`)
         .then((user) => {
           this.firstName = user.data.firstName 
@@ -128,6 +134,9 @@ export default {
     routeMainPage() {
       this.$router.push({path: '/MainPage'})
     },
+    showEmploymenthistory(){
+      return this.localStorage.getItem('userRole') == 'admin'
+    }
   }
 };
 </script>
