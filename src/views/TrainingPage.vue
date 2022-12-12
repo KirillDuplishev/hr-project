@@ -33,7 +33,7 @@ div
                   br
                   br
                   h1.h1.white-color стандарты компании
-        .block-test-button
+        .block-test-button(@click="routeTestFirst()")
           button.btn-test.h1() Тест 
       .first-main-block 
         .block-paper 
@@ -54,7 +54,7 @@ div
                   br
                   br
                   h1.h1.white-color эффективности работы
-        .block-test-button
+        .block-test-button(@click="routeTestSecond()")
           button.btn-test.h1() Тест 
       .first-main-block
         .block-paper
@@ -72,7 +72,7 @@ div
               .content-paper
                 .text-paper
                   h1.h1.white-color Кросс-продажи
-        .block-test-button
+        .block-test-button(@click="routeTestThree()")
           button.btn-test.h1() Тест
       DialogWindow(:dialog="dialog" :dialogBlue="dialogBlue" @closeDialog="closeDialog" :h1="h1" :h1FirstPunkt="h1FirstPunkt" :h1SecondPunkt="h1SecondPunkt" :h1ThreePunkt="h1ThreePunkt" :h1ForPunkt="h1ForPunkt" :h1FivePunkt="h1FivePunkt" :h1SixPunkt="h1SixPunkt" :h1SevenPunkt="h1SevenPunkt" :h1EightPunkt="h1EightPunkt" :h1NinePunkt="h1NinePunkt" :h1TenPunkt="h1TenPunkt" :h1ElevenPunkt="h1ElevenPunkt" :h1TwelvePunkt="h1TwelvePunkt" :h1ThreetenPunkt="h1ThreetenPunkt" :h1FortenPunkt="h1FortenPunkt" :h1FeftenPunkt="h1FeftenPunkt" :h2="h2" :h2FirstPunkt="h2FirstPunkt" :h2SecondPunkt="h2SecondPunkt" :h2ThreePunkt="h2ThreePunkt" :h2ForPunkt="h2ForPunkt" :h2FivePunkt="h2FivePunkt" :h2SixPunkt="h2SixPunkt" :h2SevenPunkt="h2SevenPunkt" :h2EightPunkt="h2EightPunkt" :h2NinePunkt="h2NinePunkt" :h2TenPunkt="h2TenPunkt" :h2ElevenPunkt="h2ElevenPunkt" :h2TwelvePunkt="h2TwelvePunkt" :h2ThreetenPunkt="h2ThreetenPunkt" :h2FortenPunkt="h2FortenPunkt" :h2FeftenPunkt="h2FeftenPunkt" :h3FirstPunkt="h3FirstPunkt" :h3SecondPunkt="h3SecondPunkt" :h3ThreePunkt="h3ThreePunkt" :h3ForPunkt="h3ForPunkt" :h3FivePunkt="h3FivePunkt" :h3SixPunkt="h3SixPunkt" :h3SevenPunkt="h3SevenPunkt" :h3EightPunkt="h3EightPunkt" :h3NinePunkt="h3NinePunkt" :h3TenPunkt="h3TenPunkt" :h3ElevenPunkt="h3ElevenPunkt" :h3TwelvePunkt="h3TwelvePunkt" :h3ThreetePunkt="h3ThreetePunkt" :h3FortenPunkt="h3FortenPunkt" :h3FeftenPunkt="h3FeftenPunkt" :h3SixtenPunkt="h3SixtenPunkt" :h3SeventenPunkt="h3SeventenPunkt" :h3EighttenPunkt="h3EighttenPunkt" :h3NinetenPunkt="h3NinetenPunkt" :h3TwentePunkt="h3TwentenPunkt" :h3TwenteOnePunkt="h3TwenteOnePunkt" :h3TwenteTwoPunkt="h3TwenteTwoPunkt" :h3TwenteThreePunkt="h3TwenteThreePunkt" :h3TwenteForPunkt="h3TwenteForPunkt" :h3TwenteFivePunkt="h3TwenteFivePunkt" :h3TwenteSixPunkt="h3TwenteSixPunkt" :h3TwenteSevenPunkt="h3TwenteSevenPunkt" :h3TwenteEightPunkt="h3TwenteEightPunkt" :h3TwenteNinePunkt="h3TwenteNinePunkt" :h3ThreeteenPunkt="h3ThreeteenPunkt" :h3ThreeteOnePunkt="h3ThreeteOnePunkt" :h3ThreeteTwoPunkt="h3ThreeteTwoPunkt" :h3ThreeteThreePunkt="h3ThreeteThreePunkt" :h3ThreeteForPunkt="h3ThreeteForPunkt" :h3ThreeteFivePunkt="h3ThreeteFivePunkt" :h3ThreeteSixPunkt="h3ThreeteSixPunkt" :h3ThreeteSevenPunkt="h3ThreeteSevenPunkt" :h3ThreeteEightPunkt="h3ThreeteEightPunkt" :h3ThreeteNinePunkt="h3ThreeteNinePunkt" :h3ForteenPunkt="h3ForteenPunkt" :h3ForteenOnePunkt="h3ForteenOnePunkt" :h3ForteenTwoPunkt="h3ForteenTwoPunkt" :h3ForteenThreePunkt="h3ForteenThreePunkt" :h3ForteenForPunkt="h3ForteenForPunkt" :h3ForteenFivePunkt="h3ForteenFivePunkt" :h3ForteenSixPunkt="h3ForteenSixPunkt" :h3ForteenSevenPunkt="h3ForteenSevenPunkt" :h1Text="h1Text" :h2Text="h2Text" :h3="h3" :title="titleDialog")
     .background-img
@@ -184,6 +184,15 @@ div
       routeWorkSchedule() {
         this.$router.push({path: '/workschedule'})
         mutations.toggleNav() 
+      },
+      routeTestFirst() {
+        window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSfbaw6mjuQq8RYdVtl8b035kzhlAOZUrROHsBWCOx2ITFdLBQ/viewform?embedded=true"
+      },
+      routeTestSecond() {
+        window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdXMnflvwORaOAXbk-CiWHuar0K3ijl1ZcU5NsGUUL9YjAK7g/viewform?embedded=true"
+      },
+      routeTestThree() {
+        window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSc7OGxeh6c3sDNw-y3L2f2JRkqnySTKIIZiRgdFbJYLKuijSQ/viewform?embedded=true"
       },
       closeDialog() {
         this.dialog = false

@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+div.main-box
   .all
     .header
       .ico
@@ -23,6 +23,11 @@ div
             :editable="editable"
           )
       .check-img
+        div.description
+          div.span-information
+            span.money-fonts Заработная плата за месяц:
+          div.span-money 
+            span.money-fonts 30 000 ₽
 
     .background-img
     .footer    
@@ -122,8 +127,15 @@ strong {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    background: white;
     min-height: 100vh;
+  }
+  .main-box {
+    background-image: url("@/assets/img/Autoback.jpg");
+    /* background-image: url("@/assets/img/Autoback.jpg"); */
+    background-repeat:no-repeat ;
+    background-size: 112%;
+    min-width: 100%;
+    min-height: 100%; 
   }
   .header,
   .footer {
@@ -239,18 +251,40 @@ strong {
     z-index: 100;
     width: 100%;
     height: 100%;
-    background-color: white;
-    background-size: 100%;
+    background-image: url("@/assets/img/Autoback.jpg");
+    /* background-size: 100%; */
   }
   .check-img{
     margin-top: -250px;
     width: 40%;
     height: 1100px;
+    text-align: center;
     background: url("@/assets/img/Check2.png");
     background-repeat:no-repeat ;
     transform: scale(0.5);
     /* background-position: 80%; */
     /* backdrop-filter: invert(60%); */
     /* background-position-x: 180%; */
+  }
+  .description {
+    width: 80%;
+    margin: 0px 0% 0px 6%;
+  }
+  .span-money {
+    height: 50px;
+    /* margin-left: 30px; */
+    margin-top: 25px;
+    text-align: center; 
+  }
+  .span-information {
+    /* margin-left: 30px; */
+    text-align: center;
+    margin-top: 300px;
+  }
+  .money-fonts {
+    font-size: 70px;
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: bold;
   }
   </style>
