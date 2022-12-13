@@ -1,69 +1,54 @@
 <template lang="pug">
 div.main-box
   .all
-    .header
-      .ico
-        .text
-        .img
-      .home-icon(@click="routeMainPage")
-        img.img-home(src="@/assets/img/home-icon.png")
-      .block-burger
-        BurgerButton  
-    SideBarLeft
-      span.burgerHeader Меню
-      button.btn-sidebar.third(@click="routeMyProfile") Мой профиль
-      button.btn-sidebar.third(@click="routeTraining") Обучение
-      button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
-    div.main-calendar-block
-      div.calendar-block
-        v-app.calendar
-          VueWeekScheduler(
-            v-model="events"
-            :config="config"
-            :editable="editable"
-          )
-      .check-img
-        div.description
-          div.span-information
-            span.money-fonts Заработная плата за месяц:
-          div.span-money 
-            span.money-fonts 30 000 ₽
-
-    .background-img
+    .background
+      .header
+        .ico
+          .text
+          .img
+        .home-icon(@click="routeMainPage")
+          img.img-home(src="@/assets/img/home-icon.png")
+        .block-burger
+          BurgerButton  
+      SideBarLeft
+        span.burgerHeader Меню
+        button.btn-sidebar.third(@click="routeMyProfile") Мой профиль
+        button.btn-sidebar.third(@click="routeTraining") Обучение
+        button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
+      div.main-calendar-block
+        div.calendar-block-first
+          .paper()
+        div.calendar-block-second
+          datepicker.date(:inline="true" :language="ru")
+        .check-img
+          div.description
+            div.span-information
+              span.money-fonts Заработная плата за месяц:
+            div.span-money 
+              span.money-fonts 30 000 ₽
+      DialogWindowWork(:dialog="dialog" :dialogBlue="dialogBlue" @closeDialog="closeDialog" :title="titleDialog" :h1FirstPunkt="h1FirstPunkt" :h1SecondPunkt="h1SecondPunkt" :h1ThreePunkt="h1ThreePunkt" :h1ForPunkt="h1ForPunkt" :h1FivePunkt="h1FivePunkt" :h1SixPunkt="h1SixPunkt" :h1SevenPunkt="h1SevenPunkt" :h1EightPunkt="h1EightPunkt" :h1NinePunkt="h1NinePunkt" :h1TenPunkt="h1TenPunkt" :h1ElevenPunkt="h1ElevenPunkt" :h1TwelvePunkt="h1TwelvePunkt")
+    //- .background-img
     .footer    
   </template>
   
   <script>
   import { mutations } from "@/store.js";
+  import DialogWindowWork from "@/components/DialogWindowWork.vue";
   import SideBarLeft from '@/components/SideBarLeft.vue'
   import BurgerButton from '@/components/Burger.vue'
-  import VueWeekScheduler from 'vuetify-week-scheduler';
+  import Datepicker from 'vuejs-datepicker';
+  import {ru} from 'vuejs-datepicker/dist/locale'
   export default {
     name:"TrainingPage",
     components: {
       SideBarLeft,
       BurgerButton,
-      VueWeekScheduler
+      DialogWindowWork,
+      Datepicker
     },
     data() {
       return {
-        events: [],
-        editable: true,
-        config: {
-          periodBackgroundColor: "#F44336",
-          // periodTitle: 0,
-          periodTextColor: "#fff",
-          periodBorderColor: "#ccc",
-          daysList: [    // list of days labels
-            "Понедельник",
-            "Вторник",
-            "Среда",
-            "Четверг",
-            "Пятница",
-            "Суббота",
-            "Воскресенье",
-          ],
-        },
+        ru: ru,
       }
     },
     methods: {
@@ -82,23 +67,34 @@ div.main-box
   };
   </script>
   
-<style scoped>
-* {
-  margin: 0;
-  padding: 0;
-}
-strong {
-  color: #fff;
-}
+  <style scoped>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  strong {
+    color: #fff;
+  }
   .main-calendar-block {
     z-index: 101;
     display: flex;
     flex-flow: row wrap;
     width: 100%;
+    height: 85vh;
+  }
+  .background{
+    background-image: url("@/assets/img/Autoback.jpg");
+    background-size: cover;
+    min-width:100%;
+    min-height:100%;
+  }
+  .calendar-block-first {
+    width: 40%;
     height: 100%;
   }
-  .calendar-block {
-    width: 60%;
+  .calendar-block-second {
+    width: 30%;
+    padding-top: 165px;
     height: 100%;
   }
 
@@ -255,7 +251,7 @@ strong {
   }
   .check-img{
     margin-top: -250px;
-    width: 40%;
+    width: 30%;
     height: 1100px;
     text-align: center;
     background: url("@/assets/img/Check2.png");
@@ -285,5 +281,57 @@ strong {
     font-family: 'SF UI Display';
     font-style: normal;
     font-weight: bold;
+  }
+  .paper {
+    cursor: pointer;
+    width: 85%;
+    height: 400px;
+    text-align: center;
+    /* background-color: #ffc17d; */
+    background-image: url("@/assets/img/calendar-background.jpg");
+    background-size: 100%;
+    border-radius: 75px;
+    margin: 100px auto 0 auto;
+    box-shadow: 10px 10px 10px;
+    border: 2px solid #fff;
+    padding-top: 60px;
+  }
+  .content-paper {
+    width: 100%;
+    height: 100%;
+    line-height: 250px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 20px;
+  }
+  .button-paper {
+    /* display: flex; */
+    width: 100%;
+    margin: auto;
+  }
+  .first-button-paper {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    margin-bottom: 40px;
+    padding-right: 20px;
+  }
+  .second-button-paper {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    padding-right: 20px;
+  }
+  .date {
+    text-align: center;
+    transform: scale(1.3);
+    margin: 0 30px 0 110px;
+    /* margin: auto; */
+    box-shadow: 10px 10px 10px;
+    border: 2px solid #fff;
+    /* border-radius: 50px; */
+  }
+  .vdp-datepicker__calendar{
+    border-radius: 10px !important;
   }
   </style>
