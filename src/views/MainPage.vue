@@ -17,17 +17,17 @@
     section.sectionOne
       .firstText
           <img src="@/assets/img/nameLogo.svg">
-          h1 Управление человеческим капиталом (HRM)
+          h1.h1 Управление человеческим капиталом (HRM)
           br 
-          span Понимая, что необходимо сотрудникам, как они работают и что их мотивирует, вы сможете выработать систему управления персоналом и кадровую стратегию, ориентированную на интересы людей.
+          span.h1 Понимая, что необходимо сотрудникам, как они работают и что их мотивирует, вы сможете выработать систему управления персоналом и кадровую стратегию, ориентированную на интересы людей.
           //- .border
     section.sectionTwo
       .secondText
-        span Вы сможете навсегда изменить мир трудовых отношений при помощи программных решений для управления человеческим капиталом нового поколения. 
+        span.h1 Вы сможете навсегда изменить мир трудовых отношений при помощи программных решений для управления человеческим капиталом нового поколения. 
 
   .footer
     p.name ORANGE 
-    p.date © 2022     
+      p.date © 2022     
 </template>
 
 <script>
@@ -240,12 +240,12 @@ export default {
   text-align: left;
 }
 .firstText h1{
-  font-size:calc(100vw - 97.5vw);
+  /* font-size:calc(100vw - 97.5vw); */
   padding-bottom:10px ;
   border-bottom: 1px solid #fff;
 }
 .firstText span{
-  font-size:calc(100vw - 98.6vw);
+  /* font-size:calc(100vw - 98.6vw); */
   padding-top:100px;
 }
 .firstText h1, span {
@@ -308,7 +308,7 @@ export default {
   width: calc(100vw - 100px);
 }
 .secondText span{
-  font-size:calc(100vw - 97vw);
+  /* font-size:calc(100vw - 97vw); */
   color: #fff;
 }  
 .name{

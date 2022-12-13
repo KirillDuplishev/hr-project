@@ -502,6 +502,7 @@ div
   }
   
   .content-block {
+    padding-bottom: 100px;
     z-index: 101;
     height: 100%;
     width: 100%;

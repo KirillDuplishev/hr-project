@@ -1,11 +1,11 @@
 <template lang="pug">
-  v-app(style="height:30px")
+  v-app(style="height:30px;")
     v-dialog(style="height:30px" v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition")
       template( v-slot:activator="{ on, attrs }")
-        label(style="height:30px" v-bind="attrs" v-on="on") Трудовая книжка
+        span(style="height:30px; text-decoration: underline;" v-bind="attrs" v-on="on" @click="q()") Трудовая книжка
       v-card
         v-toolbar( dark color="orange")
-          v-btn( icon dark @click="dialog = false")
+          v-btn( icon dark @click="closeDialog()")
             v-icon mdi-close
           v-toolbar-title Трудовая книжка
         v-list( three-line subheader)
@@ -30,7 +30,7 @@
                   b {{dateOfbirth}}
                 br
                 span СНИЛС: 
-                  b {{Snils}}
+                  b {{snils}}
                 br
                 div(style="width:400px")  
                   table
@@ -63,18 +63,19 @@
                     tr
                       td 1
                       td ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "Пекарня". 019-035-116260
-                      td(colspan="2") 24.05.2022
+                      td(colspan="2") {{datedOfEmployment}}
                       td ПРИЕМ
-                      td Младший пекарь
+                      td {{role}}
                       td 2514.9
-                      td
+                      td -
                       td Приказ
-                      td 24.05.2022
+                      td {{datedOfEmployment}}
                       td 7
-                      td
+                      td -
                   
 </template>
 <script>
+import { mutations } from "@/store.js";
 import axios from 'axios'
 export default {
   name:"EmploymentHistory",
@@ -84,11 +85,23 @@ export default {
       firstName:"",
       lastName:"",
       middleName:"",
-      Snils:"",
-      dateOfbirth:""
+      snils:"",
+      dateOfbirth:"",
+      role:"",
+      datedOfEmployment:""
     }
   },
+  methods: {
+    closeDialog() {
+      this.dialog = false,
+      mutations.openDialogWindow()
+    },
+    q() {
+      mutations.openDialogWindow()
+    },
+  },
   mounted(){
+      // mutations.openDialogWindow()
       if(localStorage.getItem('userRole' != 'admin')){
         axios.get(`http://localhost:8090/user/${localStorage.getItem('userUUID')}`)
           .then((user) => {
@@ -96,7 +109,8 @@ export default {
             this.lastName = user.data.lastName
             this.middleName = user.data.middleName
             this.dateOfbirth = user.data.dateOfbirth
-            this.Snils = user.data.Snils
+            this.snils = user.data.snils
+            this.role = user.data.role
           })
           .catch((error) => {
             alert(error)
@@ -109,7 +123,10 @@ export default {
             this.lastName = user.data.lastName
             this.middleName = user.data.middleName
             this.dateOfbirth = user.data.dateOfbirth
-            this.Snils = user.data.Snils
+            this.snils = user.data.snils
+            this.role = user.data.role
+            this.datedOfEmployment = user.data.datedOfEmployment
+
           })
           .catch((error) => {
             alert(error)
@@ -152,7 +169,7 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -30%) scale(0.7);
+  transform: translate(-50%, -30%) scale(0.6);
   border-collapse: collapse;
   /* width: 300px;
   height: auto; */

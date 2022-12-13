@@ -4,26 +4,19 @@ v-app
     #header
       .ico
         .img
-        .text
-      .block-burger
-        BurgerButton  
-    SideBarLeft
-      span.burgerHeader Меню
-      button.btn-sidebar.third(@click="routeMyProfile") Мой профиль
-      button.btn-sidebar.third(@click="routeTraining") Обучение
-      button.btn-sidebar.third(@click="routeWorkSchedule") Рабочий график
-      button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
+        v-btn(@click="routeAdminPanel" fab small)
+          v-icon mdi-arrow-left-top-bold   
     form(name="users")  
       .containerUsers
-        span Регистарция пользователя
+        span Регистрация пользователя
         br
-        label( for="firstName")
-        b Имя
-        input( v-model="firstName" type="text" name="firstName" placeholder="Иван" required)
-        
         label( for="lastName")
         b Фамилию
         input( v-model="lastName" type="text" name="lastName" placeholder="Иванов" required)
+        
+        label( for="firstName")
+        b Имя
+        input( v-model="firstName" type="text" name="firstName" placeholder="Иван" required)
         
         label( for="middleName")
         b Отчество
@@ -65,19 +58,25 @@ v-app
         input( v-model="snils" type="text" name="snils" required)
         
         br
+
+        label( for="passport") 
+        b Серия и номер паспорта:
+        input( v-model="passport" type="text" name="passport" required)
         
+        br
+        br
         label( for="ed") 
         //- b Образование:
         v-select(v-model="education" :items="allEducation" outlined label="Образование")
         //- input( v-model="education" type="text" name="ed" required)
         
-        button(type="button" @click="qwe") asdasdasd
+        //- button(type="button" @click="qwe") asdasdasd
         button(type="button" @click="saveUser") Создать подьзователья
       br
 </template>
 
 <script>
-import { mutations } from "@/store.js";
+// import { mutations } from "@/store.js";
 import axios from 'axios'
 import SideBarLeft from '@/components/SideBarLeft.vue'
 import BurgerButton from '@/components/Burger.vue'
@@ -106,8 +105,9 @@ export default {
       education:"",
       datedOfEmployment:"",
       dateOfbirth:"",
+      passport:"",
       sexSelect:['Мужской', 'Женский'],
-      roleSelect:['Руководитель', 'Сотрудник', 'admin'],
+      roleSelect:['Директор', 'Менеджер', 'Старший пекарь', 'Младший пекарь', 'Продавец-кассир', 'Грузчик-водитель', 'Технолог', 'Клиннер', 'admin'],
       allEducation:['Среднее образование','Средне-специальное образование', 'Высшее образование']
     }
   },
@@ -130,10 +130,11 @@ export default {
         email: this.email,
         password: this.password,
         role: this.keyRole,
-        datedOfEmployment: this.datedOfEmployment.toString(),
-        dateOfbirth: this.dateOfbirth.toString(),
+        datedOfEmployment: this.datedOfEmployment,
+        dateOfbirth: this.dateOfbirth,
         snils: this.snils,
-        education: this.education
+        education: this.education,
+        passport: this.passport
       })
       .then((user) => {
         alert("SUCCESS", user)
@@ -143,22 +144,9 @@ export default {
         alert(error)
       });
     },
-    routeWorkSchedule() {
-      this.$router.push({path: '/workschedule'})
-      mutations.toggleNav() 
+    routeAdminPanel() {
+      this.$router.push({path: '/adminPanel'})
     },
-    routeTraining () {
-      this.$router.push({path: '/training'})
-      mutations.toggleNav() 
-    },
-    routeMyProfile() {
-      this.$router.push({path: '/myprofile'})
-      mutations.toggleNav() 
-    },
-    createUser(){
-      this.$router.push({path: '/addUser'})
-      mutations.toggleNav() 
-    }
   }
 }
 </script>
@@ -207,7 +195,7 @@ button {
   width: 100%;
   height: 90%;
   background: #fff;
-  transform: translate(-50%, 0%);
+  /* transform: translate(-50%, 0%); */
   /* display: flex; */
   /* justify-content: center; */
   border: 3px solid #6e6e6e;
@@ -256,13 +244,6 @@ button {
   height: 60px;
   background: orange;
 }
-.content {
-  background: rgb(32, 32, 32);
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-}
-
 .text {
   width: 160px;
   height:inherit;
@@ -277,136 +258,5 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
-/* .sidebar {
-  position: relative;
-  top: 105px;
-  left: 0px;
-  background: #fae8b9;
-  float: left;
-  width: 17%;
-  height: 100%;
-
-} */
-
-.btn-sidebar {
-  width:200px;
-  height:60px;
-  box-sizing: border-box;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background-color: transparent;
-  border: 2px solid #e74c3c;
-  border-radius: 0.6em;
-  color: #e74c3c;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center;
-  font-size: 1rem;
-  line-height: 1;
-  margin: 20px;
-  padding: 20px;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-}
-
-.btn-sidebar:hover, .btn:focus {
-  outline: 0;
-}
-
-.third {
-  border-color: orange;
-  color: #fff;
-  box-shadow: 0 0 40px 40px orange inset, 0 0 0 0 orange;
-  -webkit-transition: all 150ms ease-in-out;
-  transition: all 150ms ease-in-out;
-}
-.third:hover {
-  box-shadow: 0 0 10px 0 orange inset, 0 0 10px 4px orange;
-}
-.block-burger{
-  position: absolute;
-  right: 30px;
-  top: 29px;
-}
-.burgerHeader{
-  font-size: 25px;
-  font-family: monospace;
-  font-weight: 600;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-}
-.sectionOne{
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background-image: url("@/assets/img/HR 24.jpeg");
-  background-size: 100%;
-  overflow: auto;
-}
-.firstText{
-  display: block;
-  position: relative;
-  top: calc(100vh / 1.7);
-  left: 50%;
-  transform: translate(-100%,-17em);
-  width: 45vw;
-  height: calc((1/3 * 45vw) + 5vw);
-  word-break: normal;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 20px;
-  padding: 20px;
-  text-align: left;
-}
-.firstText h1{
-  font-size:calc(100vw - 97.5vw);
-  padding-bottom:10px ;
-  border-bottom: 1px solid #fff;
-}
-.firstText span{
-  font-size:calc(100vw - 98.6vw);
-  padding-top:100px;
-}
-.firstText h1, span {
-  margin-top: -60px;
-}
-.sectionTwo{
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background-image: url("@/assets/img/SectionTwo.jpg");
-  background-size: 100%;
-  text-align: center;
-}
-.sectionTwo span{
-  /* position: absolute; */
-  margin-left: auto;
-  margin-right: auto;
-  /* margin-top:auto; */
-  color: #fff;
-  font-size:calc(100vw - 98.6vw);
-}
-.border{
-  margin-top: -11em;
-  margin-left: 45em;
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-    background-image: url("@/assets/img/Ресурс 15.svg");
-  box-shadow: 0px 0px 150px -75;
-  animation: spin 3.4s linear infinite;
-  border: 4px solid #fff;
 }
 </style>

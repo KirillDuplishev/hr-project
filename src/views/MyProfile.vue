@@ -1,12 +1,14 @@
 <template lang="pug">
 .all
-  .header
+  .header(:class="{'header-dialog' : header}")
     .ico
       .img
-      .text
-    .home-icon(v-show="this.role != 'admin'" @click="routeMainPage")
+      .text(v-show="!showEmploymenthistory")
+      v-btn(v-show="showEmploymenthistory" @click="routeAdminPanel" fab)
+          v-icon mdi-arrow-left-top-bold
+    .home-icon(v-show="!showEmploymenthistory" @click="routeMainPage")
       img.img-home(src="@/assets/img/home-icon.png")
-    .block-burger(v-show="this.role != 'admin'")
+    .block-burger(v-show="!showEmploymenthistory")
       BurgerButton  
   SideBarLeft
     span.burgerHeader Меню
@@ -20,7 +22,7 @@
       div.photo-sotr-block(v-if="this.sex == 'Женский'")
         img.img-photo(src="../assets/photo-sotrudnikov/free-sticker-woman-4825027.png")
     .second-block
-      p.name.h1 {{this.firstName}} {{this.lastName}} {{this.middleName }}
+      p.name.h1 {{this.lastName}} {{this.firstName}} {{this.middleName }}
       .table-block
         div.table-information
           table.table_col
@@ -32,9 +34,15 @@
             tr
               td.table_col-first-td.h2 Пол
               td.h4 {{this.sex}}
-            tr
+            tr(v-show="this.role != 'admin'")
               td.table_col-first-td.h2 Дата трудоустройства
-              td.h4 {{this.datedOfEmployment}}
+                td.h4 {{this.datedOfEmployment}}
+            tr(v-show="showEmploymenthistory" @click="q()" style="width:100vw")
+              td.table_col-first-td.h2
+                  employmenthistory(style="background:transparent")
+            tr(v-show="showEmploymenthistory" style="width:100vw")
+              td.table_col-first-td.h2
+                medicalbook(style="background:transparent")
     .third-block
       .table-block
         div.table-information
@@ -50,16 +58,19 @@
             tr              
               td.table_col-first-td.h2 Дата рождения
               td.h4 {{this.dateOfbirth}}
-    span(v-show="showEmploymenthistory")
-      employmenthistory(style="position:absolute")
-    span(v-show="showEmploymenthistory")
-      medicalbook(style="position:absolute")
+            tr(v-show="showEmploymenthistory")
+              td.table_col-first-td.h2 Паспортные данные
+              td.h4 {{passport}} 
+    //- span(v-show="showEmploymenthistory")
+    //-   employmenthistory
+    //- span(v-show="showEmploymenthistory")
+    //-   medicalbook
   .background-img
   .footer    
 </template>
 
 <script>
-import { mutations } from "@/store.js";
+import { store, mutations } from "@/store.js";
 import SideBarLeft from '@/components/SideBarLeft.vue'
 import BurgerButton from '@/components/Burger.vue'
 import axios from 'axios'
@@ -83,7 +94,21 @@ export default {
       email:"",
       role:"",
       datedOfEmployment:"",
-      dateOfbirth:""
+      dateOfbirth:"",
+      passport:""
+    }
+  },
+  computed: {
+    header() {
+      // console.log(store.openDialog)
+      return store.openDialog
+    },
+    showEmploymenthistory(){
+      if(localStorage.getItem('userRole') == 'admin')
+        return true
+      else
+        return false   
+      
     }
   },
   mounted(){
@@ -98,7 +123,8 @@ export default {
           this.email = user.data.email
           this.role = user.data.role
           this.datedOfEmployment = user.data.datedOfEmployment
-          this.dateOfbirth = user.data.dateOfbirth
+          this.dateOfbirth = user.data.dateOfbirth,
+          this.passport = user.data.passport
         })
         .catch((error) => {
           alert(error)
@@ -116,6 +142,8 @@ export default {
           this.role = user.data.role
           this.datedOfEmployment = user.data.datedOfEmployment
           this.dateOfbirth = user.data.dateOfbirth
+          this.passport = user.data.passport
+          console.log(user);
         })
         .catch((error) => {
           alert(error)
@@ -134,9 +162,10 @@ export default {
     routeMainPage() {
       this.$router.push({path: '/MainPage'})
     },
-    showEmploymenthistory(){
-      return this.localStorage.getItem('userRole') == 'admin'
-    }
+    routeAdminPanel() {
+      this.$router.push({path: '/adminPanel'})
+    },
+    
   }
 };
 </script>
@@ -171,19 +200,27 @@ export default {
   background: white;
   min-height: 100vh;
 }
-.header,
-.footer {
-  height: 50px;
-}
 
 .header {
-  position: relative;
+  position: fixed;
+  z-index: 100;
+  margin:20px;
+  width: calc(100% - 40px);
+  height: 60px;
+  background: orange;
+  /* display: flex; */
+  border-radius:30px ;
+  box-shadow: 5px 5px 15px #000;
+  border: 1px solid #fff;
+}
+.header-dialog {
+  position: fixed;
   z-index: 99;
   margin:20px;
   width: calc(100% - 40px);
   height: 60px;
   background: orange;
-  display: flex;
+  /* display: flex; */
   border-radius:30px ;
   box-shadow: 5px 5px 15px #000;
   border: 1px solid #fff;
@@ -201,8 +238,8 @@ export default {
   width: 100%;
   height: 100%;
   margin: 2vh 0 0 0;
-  /* padding: 120px 0 0 0; */
-  /* margin: 10px auto 0 auto; */
+  padding: 120px 0 0 0;
+  margin: 10px auto 0 auto;
 }
 .text {
   width: 160px;
@@ -342,7 +379,7 @@ color: #4d4944;
 }
 .img-photo{
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   border: 3px solid #000;
   border-radius: 50%;
   box-shadow: 10px 10px 20px #007bff;

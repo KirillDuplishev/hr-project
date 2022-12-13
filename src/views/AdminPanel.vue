@@ -3,19 +3,25 @@
   .header
     .ico
       .img
-      .text
-    span пользователи
-    v-btn(@click="createUser") Новый пользователь
+      div
+    h1.h1 Пользователи
+  v-btn.addUser(@click="createUser" fab) 
+      v-icon mdi-plus
+  v-btn.exit(@click="exit" fab) 
+    v-icon mdi-exit-to-app
   .content-users(v-for="man in allUsers")
-    .users(@click="transitionMyProfil(man.uuid)")
-      v-icon(x-large style="padding:10px") mdi-account
-      span {{man.firstName}} {{man.lastName}} {{man.middleName}}
-
-  .footer    
+    .users()
+      v-icon(@click="transitionMyProfil(man.uuid)" x-large style="padding:10px") mdi-account
+      b.h1(@click="transitionMyProfil(man.uuid)") {{man.firstName}} {{man.lastName}} {{man.middleName}}
+      b.h1(@click="transitionMyProfil(man.uuid)") {{man.role}}
+      .deletUser
+        v-btn(@click="deleteUserById(man.uuid)"  fab)
+          v-icon mdi-delete
+  //- .footer    
 </template>
 
 <script>
-import { mutations } from "@/store.js";
+// import { mutations } from "@/store.js";
 import SideBarLeft from '@/components/SideBarLeft.vue'
 import BurgerButton from '@/components/Burger.vue'
 import axios from 'axios'
@@ -38,7 +44,8 @@ export default {
       role:"",
       datedOfEmployment:"",
       dateOfbirth:"",
-      users:[]
+      users:[],
+      keyUser:null
     }
   },
   mounted(){
@@ -56,32 +63,51 @@ export default {
     },
   },
   methods: {
-    routeWorkSchedule() {
-      this.$router.push({path: '/workschedule'})
-      mutations.toggleNav() 
-    },
-    routeTraining () {
-      this.$router.push({path: '/training'})
-      mutations.toggleNav() 
-    },
-    routeMainPage() {
-      this.$router.push({path: '/MainPage'})
-    },
     transitionMyProfil(uuid){
       localStorage.setItem('adminUsers', uuid)
       this.$router.push({path: '/myprofile'})
     },
+    exit(){
+      this.$router.push({path: '/'})
+    },
     createUser(){
       this.$router.push({path: '/addUser'})
+    },
+    deleteUserById(uuid){
+      console.log(uuid);
+      axios.delete(`http://localhost:8090/user/` +uuid)
+      location.reload();
+      // .then((user) => {
+      //   // console.log();
+      //   alert(user.data.name)
+      // })
+      // .catch((error) => {
+      //   alert(error)
+      // });
     }
   }
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 * {
   margin: 0;
   padding: 0;
+}
+.all{
+  background-image: url("@/assets/img/Autoback.jpg");
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100vh;
+}
+.header .v-btn{
+  margin-bottom: auto;
+  margin-top: auto;
+}
+.header h1{
+  font-size: 30px;
+  color: #000;
+  margin: auto;
 }
 .header span, .v-btn{
   margin: 20px;
@@ -90,10 +116,19 @@ export default {
   display:flex;
   justify-content:center;
 }
+.users b {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #000;
+  width: 1000px;
+}
+.users b:nth-child(2){
+  left: auto;
+}
 .users{
   cursor: pointer;
   display:flex;
-  justify-content:flex-start;
+  justify-content:space-between;
   padding:5px 5px 5px 0;
   margin: 10px;
   width: 80%;
@@ -234,5 +269,17 @@ export default {
   color: #fff;
   display: flex;
   justify-content: center;
+}
+.addUser{
+  position: fixed;
+  z-index: 100000;
+  margin-left:94vw;
+  margin-top: 65vh;
+}
+.exit{
+  position: fixed;
+  z-index: 100000;
+  margin-left:94vw;
+  margin-top: 75vh;
 }
 </style>

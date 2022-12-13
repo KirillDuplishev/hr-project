@@ -82,12 +82,11 @@ div.main-box
   };
   </script>
   
-  <style scoped>
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+}
 strong {
   color: #fff;
 }
