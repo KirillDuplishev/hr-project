@@ -4,8 +4,9 @@ v-app
     #header
       .ico
         .img
-        v-btn(@click="routeAdminPanel" fab small)
-          v-icon mdi-arrow-left-top-bold   
+        .text
+      v-btn.back(@click="routeAdminPanel" fab large)
+        v-icon mdi-arrow-left-top-bold   
     form(name="users")  
       .containerUsers
         span Регистрация пользователя
@@ -159,7 +160,7 @@ export default {
 }
 .form {
   background-image: url("@/assets/img/Autoback.jpg");
-  background-size: 100%;
+  background-size: cover;
   min-width: 100%;
   min-height: 100%;
   display: flex;
@@ -189,7 +190,7 @@ button {
   border-radius: 1px;
 }
 .containerUsers{
-  margin-top:150px ;
+  margin-top:150px;
   /* margin-left: auto;
   margin-right: auto; */
   width: 100%;
@@ -201,9 +202,11 @@ button {
   border: 3px solid #6e6e6e;
   border-radius: 10px ;
   box-shadow: 5px 5px 5px rgba(0,0,0, 0.5);
-  padding: 50px 25px 25px 25px;
+  padding: 40px 25px 25px 25px;
 }
 .containerUsers span {
+  display: flex;
+  justify-content: center;
   font-size: 25px;
   color: orange;
   text-shadow: 1px 1px 0px rgb(37, 24, 0),
@@ -258,5 +261,11 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+.back{
+  position: fixed;
+  z-index: 100000;
+  margin-top: 80vh;
+  border-radius: 50%;
 }
 </style>

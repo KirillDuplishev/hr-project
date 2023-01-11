@@ -1,9 +1,9 @@
 <template lang="pug">
   v-app(style="height:30px;")
-    v-dialog(style="height:30px" v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition")
+    v-dialog(style="height:30px; overflow-x:hidden" v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition")
       template( v-slot:activator="{ on, attrs }")
         span(style="height:30px; text-decoration: underline;" v-bind="attrs" v-on="on" @click="q()") Трудовая книжка
-      v-card
+      v-card(style="overflow-x:hidden")
         v-toolbar( dark color="orange")
           v-btn( icon dark @click="closeDialog()")
             v-icon mdi-close
@@ -135,7 +135,7 @@ export default {
   },
 }
 </script>
-<style>
+<style lang="scss" scoped>
 .info{
   width: 100vw;
   height: 110vh;

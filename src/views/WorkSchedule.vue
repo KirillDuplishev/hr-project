@@ -4,13 +4,17 @@ div.main-box
     .background
       .header
         .ico
-          .text
           .img
-        .home-icon(@click="routeMainPage")
+          .text
+        v-btn.back(v-show="showEmploymenthistoryWork" @click="routeMyProfile" fab x-large)
+          v-icon mdi-arrow-left-top-bold
+        v-btn.exit(v-show="showEmploymenthistoryWork" @click="exit" fab x-large) 
+          v-icon mdi-exit-to-app
+        .home-icon( v-show="!showEmploymenthistoryWork" @click="routeMainPage")
           img.img-home(src="@/assets/img/home-icon.png")
-        .block-burger
+        .block-burger(v-show="!showEmploymenthistoryWork")
           BurgerButton  
-      SideBarLeft
+      SideBarLeft(v-show="!showEmploymenthistoryWork")
         span.burgerHeader Меню
         button.btn-sidebar.third(@click="routeMyProfile") Мой профиль
         button.btn-sidebar.third(@click="routeTraining") Обучение
@@ -19,21 +23,38 @@ div.main-box
         div.calendar-block-first
           .paper()
         div.calendar-block-second
-          datepicker.date(:inline="true" :language="ru")
+          datepicker.date(:inline="true" :language="ru" :highlighted="highlighted")
+        //- .check-img
+        //-   div.description
+        //-     div.span-information
+        //-       span.h1.money-fonts {{lastName }} {{firstName }} {{middleName }}
+        //-       span.h1 ({{role}})
+        //-     div.span-money 
+        //-       span.money-fonts {{cash}}
         .check-img
           div.description
             div.span-information
-              span.money-fonts Заработная плата за месяц:
-            div.span-money 
-              span.money-fonts 30 000 ₽
-      DialogWindowWork(:dialog="dialog" :dialogBlue="dialogBlue" @closeDialog="closeDialog" :title="titleDialog" :h1FirstPunkt="h1FirstPunkt" :h1SecondPunkt="h1SecondPunkt" :h1ThreePunkt="h1ThreePunkt" :h1ForPunkt="h1ForPunkt" :h1FivePunkt="h1FivePunkt" :h1SixPunkt="h1SixPunkt" :h1SevenPunkt="h1SevenPunkt" :h1EightPunkt="h1EightPunkt" :h1NinePunkt="h1NinePunkt" :h1TenPunkt="h1TenPunkt" :h1ElevenPunkt="h1ElevenPunkt" :h1TwelvePunkt="h1TwelvePunkt")
+              span {{lastName }}
+              br 
+              span {{firstName }}
+              br
+              span {{middleName }}
+              br
+              span ({{role}})
+              br
+              span Заработная плата за месяц:
+              //- div.span-money 
+              br
+              b
+                span {{cash}}
+      //- DialogWindowWork(:dialog="dialog" :dialogBlue="dialogBlue" @closeDialog="closeDialog" :title="titleDialog" :h1FirstPunkt="h1FirstPunkt" :h1SecondPunkt="h1SecondPunkt" :h1ThreePunkt="h1ThreePunkt" :h1ForPunkt="h1ForPunkt" :h1FivePunkt="h1FivePunkt" :h1SixPunkt="h1SixPunkt" :h1SevenPunkt="h1SevenPunkt" :h1EightPunkt="h1EightPunkt" :h1NinePunkt="h1NinePunkt" :h1TenPunkt="h1TenPunkt" :h1ElevenPunkt="h1ElevenPunkt" :h1TwelvePunkt="h1TwelvePunkt")
     //- .background-img
     .footer    
   </template>
   
   <script>
+  import axios from 'axios'
   import { mutations } from "@/store.js";
-  import DialogWindowWork from "@/components/DialogWindowWork.vue";
   import SideBarLeft from '@/components/SideBarLeft.vue'
   import BurgerButton from '@/components/Burger.vue'
   import Datepicker from 'vuejs-datepicker';
@@ -43,13 +64,56 @@ div.main-box
     components: {
       SideBarLeft,
       BurgerButton,
-      DialogWindowWork,
       Datepicker
     },
     data() {
       return {
         ru: ru,
+        firstName:"", 
+        lastName:"",
+        middleName:"",
+        role:"",
+        cash:"",
+        highlighted: {
+          daysOfMonth: [1,2,5,6,9,10,13,14,17,18,21,22,25,26,29,30],
+        }
       }
+    },
+    computed:{
+      showEmploymenthistoryWork(){
+        if(localStorage.getItem('userRole') == 'admin')
+          return true
+        else
+          return false    
+      }
+    },
+    mounted(){
+      if(localStorage.getItem('userRole') != 'admin'){
+        axios.get(`http://localhost:8090/user/${localStorage.getItem('userUUID')}`)
+        .then((user) => {
+          this.firstName = user.data.firstName 
+          this.lastName = user.data.lastName
+          this.middleName = user.data.middleName
+          this.role = user.data.role
+          this.cash = user.data.cash
+        })
+        .catch((error) => {
+          alert(error)
+        });
+      }
+      else{
+        axios.get(`http://localhost:8090/user/${localStorage.getItem('adminUsers')}`)
+          .then((user) => {
+            this.firstName = user.data.firstName 
+            this.lastName = user.data.lastName
+            this.middleName = user.data.middleName
+            this.role = user.data.role
+            this.cash = user.data.cash
+          })
+          .catch((error) => {
+            alert(error)
+          });
+      }  
     },
     methods: {
       routeTraining () {
@@ -59,9 +123,15 @@ div.main-box
       routeMainPage() {
         this.$router.push({path: '/MainPage'})
       },
+      routeAdminPanel() {
+        this.$router.push({path: '/adminPanel'})
+      },
       routeMyProfile() {
         this.$router.push({path: '/myprofile'})
         mutations.toggleNav() 
+      },
+      exit(){
+        this.$router.push({path: '/'})
       }
     }
   };
@@ -256,7 +326,7 @@ div.main-box
     text-align: center;
     background: url("@/assets/img/Check2.png");
     background-repeat:no-repeat ;
-    transform: scale(0.5);
+    transform: scale(0.6);
     /* background-position: 80%; */
     /* backdrop-filter: invert(60%); */
     /* background-position-x: 180%; */
@@ -272,15 +342,19 @@ div.main-box
     text-align: center; 
   }
   .span-information {
-    /* margin-left: 30px; */
-    text-align: center;
+    font-size: 70px;
+  }
+  .span-information {
+    margin-left: auto;
+    margin-right: auto;
+    /* text-align: center; */
     margin-top: 300px;
   }
   .money-fonts {
-    font-size: 70px;
-    font-family: 'SF UI Display';
-    font-style: normal;
-    font-weight: bold;
+    font-size: 40px;
+    /* font-family: 'SF UI Display'; */
+    /* font-style: normal; */
+    /* font-weight: bold; */
   }
   .paper {
     cursor: pointer;
@@ -327,11 +401,46 @@ div.main-box
     transform: scale(1.3);
     margin: 0 30px 0 110px;
     /* margin: auto; */
+    width:305px;
     box-shadow: 10px 10px 10px;
     border: 2px solid #fff;
     /* border-radius: 50px; */
   }
-  .vdp-datepicker__calendar{
-    border-radius: 10px !important;
+  .back{
+    position: fixed;
+    z-index: 100000;
+    margin-top: 77vh;
+    margin-left: 10px;
+  }
+  .exit{
+    position: fixed;
+    z-index: 100000;
+    margin-left:92vw;
+    margin-top: 77vh;
+  }
+.span-information {
+    width: 120%;
+    text-align: center;
+    margin-top: 200px;
+  }
+
+.fonts-check {
+  /* margin-left: auto;
+  margin-right: auto; */
+    /* text-align: center; */
+    font-size: 70px !important;
+    font-family: 'SF UI Display';
+    font-style: normal;
+  }
+  .t-a-c {
+    text-align: center;
+  }
+
+.money-fonts {
+    padding-left: -50px;
+    font-size: 70px;
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: bold;
   }
   </style>

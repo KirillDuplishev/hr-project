@@ -3,8 +3,8 @@ div
   .all
     .header
       .ico
-        .text
         .img
+        .text
       .home-icon(@click="routeMainPage")
         img.img-home(src="@/assets/img/home-icon.png")
       .block-burger

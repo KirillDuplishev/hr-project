@@ -3,14 +3,16 @@
   .header(:class="{'header-dialog' : header}")
     .ico
       .img
-      .text(v-show="!showEmploymenthistory")
-      v-btn(v-show="showEmploymenthistory" @click="routeAdminPanel" fab)
-          v-icon mdi-arrow-left-top-bold
+      .text
     .home-icon(v-show="!showEmploymenthistory" @click="routeMainPage")
       img.img-home(src="@/assets/img/home-icon.png")
     .block-burger(v-show="!showEmploymenthistory")
       BurgerButton  
-  SideBarLeft
+    v-btn.back(v-show="showEmploymenthistory" @click="routeAdminPanel" fab x-large)
+        v-icon mdi-arrow-left-top-bold
+    v-btn.exit( v-show="showEmploymenthistory" @click="exit" fab x-large) 
+      v-icon mdi-exit-to-app
+  SideBarLeft(v-show="!showEmploymenthistory")
     span.burgerHeader Меню
     button.btn-sidebar.third(@click="routeTraining") Обучение
     button.btn-sidebar.third(@click="routeWorkSchedule") Рабочий график
@@ -23,6 +25,7 @@
         img.img-photo(src="../assets/photo-sotrudnikov/free-sticker-woman-4825027.png")
     .second-block
       p.name.h1 {{this.lastName}} {{this.firstName}} {{this.middleName }}
+        v-btn.workGraph( v-show="showEmploymenthistory" @click="routeWorkSchedule") Рабочий график 
       .table-block
         div.table-information
           table.table_col
@@ -39,8 +42,8 @@
                 td.h4 {{this.datedOfEmployment}}
             tr(v-show="showEmploymenthistory" @click="q()" style="width:100vw")
               td.table_col-first-td.h2
-                  employmenthistory(style="background:transparent")
-            tr(v-show="showEmploymenthistory" style="width:100vw")
+                  employmenthistory(style="width:200px; background:transparent")
+            tr(v-show="showEmploymenthistory" style="width:100000px")
               td.table_col-first-td.h2
                 medicalbook(style="background:transparent")
     .third-block
@@ -165,6 +168,9 @@ export default {
     routeAdminPanel() {
       this.$router.push({path: '/adminPanel'})
     },
+    exit(){
+      this.$router.push({path: '/'})
+    }
     
   }
 };
@@ -317,6 +323,8 @@ export default {
   top: 29px;
 }
 .name{
+  display: flex;
+  justify-content: space-between;
   font-size: 30px;
   position: absolute;
   margin: 24px 0 0 24px;
@@ -421,5 +429,22 @@ color: #4d4944;
 tr image {
   fill:green;
   padding-left: 10px;
+}
+.back{
+  position: fixed;
+  z-index: 100000;
+  margin-top: 80vh;
+}
+.workGraph{
+  margin-left: 50px;
+}
+.exit{
+  position: fixed;
+  z-index: 100000;
+  margin-left:92vw;
+  margin-top: 82vh;
+}
+.v-application--wrap{
+  width: 300px;
 }
 </style>

@@ -12,7 +12,7 @@
     button.btn-sidebar.third(@click="routeTraining") Обучение
     button.btn-sidebar.third(@click="routeWorkSchedule") Рабочий график
     //- button.btn-sidebar.third( v-show="routeAddUser" @click="createUser") Новый пользователь
-    button.btn-sidebar.third(@click="$router.push({path:'/'})") Выход
+    button.btn-sidebar.third(@click="routerOut") Выход
   .content
     section.sectionOne
       .firstText
@@ -80,6 +80,11 @@ export default {
     createUser(){
       this.$router.push({path: '/addUser'})
       mutations.toggleNav() 
+    },
+    routerOut(){
+      this.$router.push({path:'/'})
+      mutations.toggleNav() 
+
     }
   }
 };
@@ -240,8 +245,9 @@ export default {
   text-align: left;
 }
 .firstText h1{
-  /* font-size:calc(100vw - 97.5vw); */
-  padding-bottom:10px ;
+  font-size:25px;
+  padding-top:25px ;
+  padding-bottom:15px ;
   border-bottom: 1px solid #fff;
 }
 .firstText span{
@@ -308,7 +314,8 @@ export default {
   width: calc(100vw - 100px);
 }
 .secondText span{
-  /* font-size:calc(100vw - 97vw); */
+  line-height: 60px;
+  font-size:40px;
   color: #fff;
 }  
 .name{

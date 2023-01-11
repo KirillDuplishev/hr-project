@@ -3,16 +3,16 @@
   .header
     .ico
       .img
-      div
+      .text
     h1.h1 Пользователи
-  v-btn.addUser(@click="createUser" fab) 
+  v-btn.addUser(@click="createUser" fab title="Добавить пользователя") 
       v-icon mdi-plus
   v-btn.exit(@click="exit" fab) 
     v-icon mdi-exit-to-app
   .content-users(v-for="man in allUsers")
-    .users()
+    .users(v-show="man.role != 'admin'")
       v-icon(@click="transitionMyProfil(man.uuid)" x-large style="padding:10px") mdi-account
-      b.h1(@click="transitionMyProfil(man.uuid)") {{man.firstName}} {{man.lastName}} {{man.middleName}}
+      b.h1(@click="transitionMyProfil(man.uuid)") {{man.lastName}} {{man.firstName}} {{man.middleName}}
       b.h1(@click="transitionMyProfil(man.uuid)") {{man.role}}
       .deletUser
         v-btn(@click="deleteUserById(man.uuid)"  fab)
@@ -98,7 +98,7 @@ export default {
   background-image: url("@/assets/img/Autoback.jpg");
   background-size: cover;
   min-width: 100%;
-  min-height: 100vh;
+  min-height: 100%;;
 }
 .header .v-btn{
   margin-bottom: auto;
@@ -110,7 +110,10 @@ export default {
   margin: auto;
 }
 .header span, .v-btn{
-  margin: 20px;
+  padding: 20px;
+}
+.content-users:nth-child(4){
+  padding-top:120px;
 }
 .content-users{
   display:flex;
@@ -157,20 +160,16 @@ export default {
 }
 .text {
   width: 160px;
-  height:inherit;
-  margin-top: 17px;
-  margin-left: 10px;
+  height:40px;
+  margin-top: -43px;
+  margin-left: 70px;
   background: url("@/assets/img/Ресурс9.svg");
   background-repeat: no-repeat;
   background-size: auto;
 }
-.header,
-.footer {
-  height: 50px;
-}
 
 .header {
-  position: relative;
+  position: fixed;
   z-index: 99;
   margin:20px;
   width: calc(100% - 40px);
@@ -274,12 +273,12 @@ export default {
   position: fixed;
   z-index: 100000;
   margin-left:94vw;
-  margin-top: 65vh;
+  margin-top: 80vh;
 }
 .exit{
   position: fixed;
   z-index: 100000;
   margin-left:94vw;
-  margin-top: 75vh;
+  margin-top: 90vh;
 }
 </style>

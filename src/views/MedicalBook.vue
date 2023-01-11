@@ -2,8 +2,8 @@
   v-app(style="height:30px")
     v-dialog(style="height:30px" v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition")
       template( v-slot:activator="{ on, attrs }")
-        span(v-bind="attrs" v-on="on" @click="q()" style="text-decoration: underline;") Медицинская книжка
-      v-card
+        span(v-bind="attrs" v-on="on" @click="q()" style="height:30px; text-decoration: underline;") Медицинская книжка
+      v-card(style="overflow-x:hidden")
         v-toolbar( dark color="orange")
           v-btn( icon dark @click="closeDialog")
             v-icon mdi-close
@@ -117,7 +117,7 @@ export default {
 <style>
 .infoMed{
   width: 100vw;
-  height: 130vh;
+  height: 100vh;
   background: conic-gradient(rgb(255, 102, 0),orange,rgb(255, 102, 0));
 }
 .infoMed_2{
@@ -126,8 +126,8 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-  width: 90%;
-  height: 80%;
+  width: 95%;
+  height: 70%;
   background: rgb(255, 255, 255, 0.9);
   padding: 30px;
 }
